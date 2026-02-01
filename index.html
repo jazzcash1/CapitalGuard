@@ -3,29 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finvest - Professional Investment Platform</title>
+    <title>FinVest Pro | Investment Platform for Bangladesh</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-blue: #1a2980;
-            --secondary-blue: #26d0ce;
-            --accent-green: #0abf53;
-            --dark-blue: #0f1a47;
-            --light-blue: #e8f4ff;
+            --primary-blue: #0d1b3e;
+            --secondary-blue: #1a365d;
+            --accent-blue: #2563eb;
+            --primary-green: #059669;
+            --light-green: #10b981;
+            --light-bg: #f8fafc;
             --white: #ffffff;
-            --gray-light: #f5f7fa;
-            --gray-medium: #8a94a6;
-            --gray-dark: #333333;
-            --success: #10b981;
-            --warning: #f59e0b;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-400: #94a3b8;
+            --gray-600: #475569;
+            --gray-800: #1e293b;
             --danger: #ef4444;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
-            --border-radius: 10px;
+            --warning: #f59e0b;
+            --success: #10b981;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --radius: 8px;
             --transition: all 0.3s ease;
         }
 
@@ -33,19 +32,31 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            color: var(--gray-dark);
-            background-color: var(--gray-light);
+            background-color: var(--light-bg);
+            color: var(--gray-800);
             line-height: 1.6;
         }
 
-        h1, h2, h3, h4, h5 {
+        h1, h2, h3, h4, h5, h6 {
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
-            color: var(--dark-blue);
+            color: var(--primary-blue);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            border-radius: var(--radius);
+            transition: var(--transition);
         }
 
         .container {
@@ -55,13 +66,107 @@
             padding: 0 20px;
         }
 
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-weight: 600;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-blue);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-success {
+            background-color: var(--primary-green);
+            color: white;
+        }
+
+        .btn-success:hover {
+            background-color: var(--light-green);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(37, 99, 235, 0.1);
+        }
+
+        .card {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 24px;
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge-success {
+            background-color: rgba(16, 185, 129, 0.15);
+            color: var(--success);
+        }
+
+        .badge-warning {
+            background-color: rgba(245, 158, 11, 0.15);
+            color: var(--warning);
+        }
+
+        .badge-danger {
+            background-color: rgba(239, 68, 68, 0.15);
+            color: var(--danger);
+        }
+
+        .badge-info {
+            background-color: rgba(37, 99, 235, 0.15);
+            color: var(--accent-blue);
+        }
+
+        .badge-pending {
+            background-color: rgba(148, 163, 184, 0.15);
+            color: var(--gray-600);
+        }
+
         /* Header & Navigation */
         header {
             background-color: var(--white);
-            box-shadow: var(--shadow);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
         }
 
         .navbar {
@@ -75,20 +180,14 @@
             display: flex;
             align-items: center;
             gap: 10px;
-        }
-
-        .logo-icon {
-            color: var(--primary-blue);
-            font-size: 28px;
-        }
-
-        .logo-text {
             font-family: 'Poppins', sans-serif;
-            font-size: 24px;
             font-weight: 700;
-            background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+        }
+
+        .logo i {
+            color: var(--accent-blue);
         }
 
         .nav-links {
@@ -98,601 +197,432 @@
         }
 
         .nav-links a {
-            text-decoration: none;
-            color: var(--dark-blue);
             font-weight: 500;
+            color: var(--gray-800);
             transition: var(--transition);
-            position: relative;
         }
 
         .nav-links a:hover {
-            color: var(--primary-blue);
+            color: var(--accent-blue);
         }
 
-        .nav-links a:hover::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
-        }
-
-        .nav-buttons {
+        .user-menu {
             display: flex;
+            align-items: center;
             gap: 15px;
         }
 
-        .btn {
-            padding: 10px 22px;
-            border-radius: var(--border-radius);
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--accent-blue);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            border: none;
-            font-family: 'Inter', sans-serif;
         }
 
-        .btn-primary {
-            background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
-            color: var(--white);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--primary-blue);
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
             color: var(--primary-blue);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--primary-blue);
-            color: var(--white);
-        }
-
-        .btn-success {
-            background-color: var(--accent-green);
-            color: var(--white);
-        }
-
-        .btn-success:hover {
-            background-color: #089c45;
-            transform: translateY(-2px);
         }
 
         /* Hero Section */
         .hero {
-            padding: 100px 0;
-            background: linear-gradient(135deg, var(--light-blue) 0%, #f0f9ff 100%);
-            position: relative;
-            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+            padding: 80px 0;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 40px;
         }
 
         .hero-content {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
             align-items: center;
-            justify-content: space-between;
-            gap: 50px;
         }
 
-        .hero-text {
-            flex: 1;
-        }
-
-        .hero-title {
-            font-size: 3.2rem;
-            line-height: 1.2;
+        .hero-text h1 {
+            font-size: 2.8rem;
+            color: white;
             margin-bottom: 20px;
-            background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
         }
 
-        .hero-subtitle {
-            font-size: 1.2rem;
-            color: var(--gray-medium);
+        .hero-text p {
+            font-size: 1.1rem;
             margin-bottom: 30px;
-            max-width: 600px;
+            opacity: 0.9;
         }
 
         .stats {
-            display: flex;
-            gap: 40px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
             margin-top: 40px;
         }
 
-        .stat-item h3 {
-            font-size: 2.2rem;
-            color: var(--accent-green);
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius);
+        }
+
+        .stat-item .number {
+            font-size: 2rem;
+            font-weight: 700;
             margin-bottom: 5px;
         }
 
-        .stat-item p {
-            color: var(--gray-medium);
-            font-size: 0.95rem;
+        .stat-item .label {
+            font-size: 0.9rem;
+            opacity: 0.8;
         }
 
-        .hero-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-        }
-
-        .hero-image img {
-            max-width: 100%;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-lg);
-        }
-
-        /* Features/Why Choose Us */
-        .features {
-            padding: 80px 0;
-            background-color: var(--white);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--gray-medium);
-            max-width: 700px;
-            margin: 0 auto 60px;
-        }
-
-        .features-grid {
+        /* Dashboard Layout */
+        .dashboard-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: 250px 1fr;
             gap: 30px;
+            margin-bottom: 50px;
         }
 
-        .feature-card {
+        .sidebar {
             background-color: var(--white);
-            border-radius: var(--border-radius);
-            padding: 35px 25px;
-            text-align: center;
+            border-radius: var(--radius);
             box-shadow: var(--shadow);
-            transition: var(--transition);
-            border: 1px solid #eef2f7;
+            padding: 20px 0;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
         }
 
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
+        .sidebar-menu {
+            list-style: none;
         }
 
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 25px;
+        .sidebar-menu li {
+            margin-bottom: 5px;
+        }
+
+        .sidebar-menu a {
             display: flex;
             align-items: center;
-            justify-content: center;
-            background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
-            border-radius: 50%;
-            color: var(--white);
-            font-size: 28px;
+            gap: 12px;
+            padding: 15px 20px;
+            color: var(--gray-800);
+            transition: var(--transition);
         }
 
-        .feature-card h3 {
-            margin-bottom: 15px;
-            font-size: 1.4rem;
+        .sidebar-menu a:hover, .sidebar-menu a.active {
+            background-color: rgba(37, 99, 235, 0.1);
+            color: var(--accent-blue);
+            border-right: 3px solid var(--accent-blue);
+        }
+
+        .sidebar-menu i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .main-content {
+            background-color: transparent;
+        }
+
+        /* Dashboard Cards */
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            padding: 24px;
+            border-radius: var(--radius);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card:nth-child(1) {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+
+        .stat-card:nth-child(2) {
+            background: linear-gradient(135deg, #065f46 0%, #10b981 100%);
+        }
+
+        .stat-card:nth-child(3) {
+            background: linear-gradient(135deg, #7c2d12 0%, #f97316 100%);
+        }
+
+        .stat-card:nth-child(4) {
+            background: linear-gradient(135deg, #6d28d9 0%, #a78bfa 100%);
+        }
+
+        .stat-card i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+
+        .stat-card .value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stat-card .label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        thead {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        th, td {
+            padding: 16px 20px;
+            text-align: left;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid var(--gray-200);
+            transition: var(--transition);
+        }
+
+        tbody tr:hover {
+            background-color: var(--gray-100);
+        }
+
+        tbody tr:last-child {
+            border-bottom: none;
         }
 
         /* Investment Plans */
-        .plans {
-            padding: 80px 0;
-            background-color: var(--gray-light);
-        }
-
-        .plans-grid {
+        .plans-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
         }
 
         .plan-card {
-            background-color: var(--white);
-            border-radius: var(--border-radius);
-            padding: 30px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
+            border-radius: var(--radius);
             overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid var(--gray-200);
         }
 
         .plan-card:hover {
             transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .plan-card.popular {
-            border: 2px solid var(--accent-green);
-            transform: scale(1.05);
-        }
-
-        .plan-card.popular:hover {
-            transform: scale(1.05) translateY(-10px);
-        }
-
-        .plan-badge {
-            position: absolute;
-            top: 15px;
-            right: -30px;
-            background-color: var(--accent-green);
-            color: var(--white);
-            padding: 5px 30px;
-            transform: rotate(45deg);
-            font-size: 0.8rem;
-            font-weight: 600;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
         .plan-header {
+            padding: 25px;
             text-align: center;
-            margin-bottom: 25px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid #eee;
+            color: white;
+        }
+
+        .plan-basic .plan-header {
+            background: linear-gradient(135deg, #475569 0%, #94a3b8 100%);
+        }
+
+        .plan-pro .plan-header {
+            background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%);
+        }
+
+        .plan-premium .plan-header {
+            background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
+        }
+
+        .plan-enterprise .plan-header {
+            background: linear-gradient(135deg, #7e22ce 0%, #c084fc 100%);
         }
 
         .plan-name {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             margin-bottom: 10px;
         }
 
-        .plan-amount {
+        .plan-price {
             font-size: 2.2rem;
-            color: var(--accent-green);
             font-weight: 700;
+            margin-bottom: 5px;
         }
 
-        .plan-duration {
-            color: var(--gray-medium);
-            font-size: 0.95rem;
+        .plan-period {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .plan-body {
+            padding: 25px;
+            background-color: var(--white);
         }
 
         .plan-features {
             list-style: none;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .plan-features li {
             padding: 8px 0;
             display: flex;
             align-items: center;
+            gap: 10px;
         }
 
-        .plan-features li i {
-            color: var(--accent-green);
-            margin-right: 10px;
-        }
-
-        /* Dashboard & Auth System */
-        .dashboard-section {
-            padding: 80px 0;
-            background-color: var(--white);
-        }
-
-        .tabs {
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 30px;
-            border-bottom: 1px solid #e0e6ef;
-        }
-
-        .tab {
-            padding: 15px 30px;
-            background: none;
-            border: none;
-            font-weight: 600;
-            cursor: pointer;
-            color: var(--gray-medium);
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .tab.active {
-            color: var(--primary-blue);
-        }
-
-        .tab.active::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
-        }
-
-        .tab-content {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .dashboard-card {
-            background-color: var(--white);
-            border-radius: var(--border-radius);
-            padding: 25px;
-            box-shadow: var(--shadow);
-            border-left: 4px solid var(--primary-blue);
-        }
-
-        .dashboard-card.wallet {
-            border-left-color: var(--accent-green);
-        }
-
-        .dashboard-card h3 {
-            font-size: 1rem;
-            color: var(--gray-medium);
-            margin-bottom: 10px;
-        }
-
-        .dashboard-card .amount {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--dark-blue);
-        }
-
-        .dashboard-card .amount small {
-            font-size: 1rem;
-            color: var(--accent-green);
-        }
-
-        .table-container {
-            overflow-x: auto;
-            background-color: var(--white);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            padding: 20px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th {
-            text-align: left;
-            padding: 15px;
-            background-color: #f8fafc;
-            color: var(--gray-dark);
-            font-weight: 600;
-            border-bottom: 1px solid #e0e6ef;
-        }
-
-        td {
-            padding: 15px;
-            border-bottom: 1px solid #f1f5f9;
-        }
-
-        .status {
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .status.pending {
-            background-color: #fef3c7;
-            color: #92400e;
-        }
-
-        .status.approved {
-            background-color: #d1fae5;
-            color: #065f46;
-        }
-
-        .status.rejected {
-            background-color: #fee2e2;
-            color: #991b1b;
-        }
-
-        .status.running {
-            background-color: #dbeafe;
-            color: #1e40af;
+        .plan-features i {
+            color: var(--success);
         }
 
         /* Payment Methods */
         .payment-methods {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             gap: 15px;
-            margin: 20px 0;
+            margin-top: 20px;
         }
 
         .payment-method {
-            display: flex;
-            align-items: center;
-            padding: 12px 20px;
-            border: 2px solid #e0e6ef;
-            border-radius: var(--border-radius);
-            cursor: pointer;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius);
+            padding: 15px;
+            text-align: center;
             transition: var(--transition);
-            flex: 1;
-            min-width: 150px;
+            cursor: pointer;
         }
 
         .payment-method:hover, .payment-method.active {
-            border-color: var(--primary-blue);
-            background-color: #f0f7ff;
+            border-color: var(--accent-blue);
+            background-color: rgba(37, 99, 235, 0.05);
         }
 
         .payment-method i {
-            font-size: 28px;
-            margin-right: 15px;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
         }
 
-        .bkash { color: #e2136e; }
-        .nagad { color: #f8a61c; }
-        .rocket { color: #5d2d91; }
-        .upay { color: #2ca6ff; }
-        .bank { color: var(--primary-blue); }
+        .payment-method.bkash i {
+            color: #e2136e;
+        }
+
+        .payment-method.nagad i {
+            color: #f8a61c;
+        }
+
+        .payment-method.rocket i {
+            color: #5d2d91;
+        }
+
+        .payment-method.upay i {
+            color: #2d87bb;
+        }
+
+        .payment-method.bank i {
+            color: #1e40af;
+        }
 
         /* Admin Panel */
-        .admin-panel {
-            background-color: #1a1f36;
-            color: var(--white);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .admin-header {
-            background-color: var(--dark-blue);
-            padding: 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .admin-sidebar {
-            background-color: #252c48;
-            width: 250px;
-            min-height: 600px;
-            padding: 20px 0;
-        }
-
-        .admin-content {
-            flex: 1;
-            padding: 30px;
-            background-color: #f1f5f9;
-        }
-
-        .admin-layout {
-            display: flex;
-        }
-
-        .admin-menu {
-            list-style: none;
-        }
-
-        .admin-menu li {
-            padding: 15px 25px;
-            transition: var(--transition);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .admin-menu li:hover, .admin-menu li.active {
-            background-color: var(--primary-blue);
-            border-left: 4px solid var(--accent-green);
-        }
-
-        /* FAQ */
-        .faq {
-            padding: 80px 0;
-            background-color: var(--white);
-        }
-
-        .faq-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            margin-bottom: 15px;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .faq-question {
-            padding: 20px 25px;
-            background-color: var(--light-blue);
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .faq-answer {
-            padding: 0 25px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            background-color: #f9fbfd;
-        }
-
-        .faq-answer.active {
-            padding: 20px 25px;
-            max-height: 500px;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark-blue);
-            color: var(--white);
-            padding: 70px 0 30px;
-        }
-
-        .footer-grid {
+        .admin-controls {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
         }
 
-        .footer-col h3 {
-            color: var(--white);
-            margin-bottom: 25px;
-            font-size: 1.3rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            color: #cbd5e1;
-            text-decoration: none;
+        .admin-control-btn {
+            padding: 15px;
+            background-color: var(--white);
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
             transition: var(--transition);
         }
 
-        .footer-links a:hover {
-            color: var(--white);
-            padding-left: 5px;
+        .admin-control-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #334155;
-            color: #94a3b8;
-            font-size: 0.9rem;
+        .admin-control-btn i {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--accent-blue);
         }
 
-        /* Auth Modal */
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--gray-800);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        }
+
+        .input-with-icon {
+            position: relative;
+        }
+
+        .input-with-icon i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray-400);
+        }
+
+        .input-with-icon input {
+            padding-left: 45px;
+        }
+
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -701,7 +631,7 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5);
-            z-index: 2000;
+            z-index: 1000;
             align-items: center;
             justify-content: center;
             padding: 20px;
@@ -713,144 +643,339 @@
 
         .modal-content {
             background-color: var(--white);
-            border-radius: var(--border-radius);
+            border-radius: var(--radius);
             width: 100%;
             max-width: 500px;
-            padding: 40px;
-            box-shadow: var(--shadow-lg);
+            max-height: 90vh;
+            overflow-y: auto;
             position: relative;
             animation: modalFadeIn 0.3s ease;
         }
 
         @keyframes modalFadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 20px;
+        .modal-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-body {
+            padding: 24px;
+        }
+
+        .modal-close {
+            background: none;
             font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--gray-medium);
+            color: var(--gray-600);
         }
 
-        .form-group {
+        /* Tabs */
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid var(--gray-200);
             margin-bottom: 20px;
         }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
+        .tab {
+            padding: 12px 24px;
+            background: none;
+            color: var(--gray-600);
             font-weight: 500;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #d1d9e6;
-            border-radius: var(--border-radius);
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
+            border-bottom: 3px solid transparent;
             transition: var(--transition);
         }
 
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary-blue);
-            box-shadow: 0 0 0 3px rgba(26, 41, 128, 0.1);
+        .tab:hover {
+            color: var(--accent-blue);
         }
 
-        .form-row {
+        .tab.active {
+            color: var(--accent-blue);
+            border-bottom-color: var(--accent-blue);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Notifications */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 16px 20px;
+            border-radius: var(--radius);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
             display: flex;
-            gap: 15px;
+            align-items: center;
+            gap: 10px;
+            max-width: 350px;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
-        .form-row .form-group {
-            flex: 1;
+        .notification.show {
+            transform: translateY(0);
+            opacity: 1;
         }
 
-        /* Responsive */
-        @media (max-width: 992px) {
+        .notification-success {
+            background-color: var(--success);
+            color: white;
+        }
+
+        .notification-error {
+            background-color: var(--danger);
+            color: white;
+        }
+
+        .notification-warning {
+            background-color: var(--warning);
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
             .hero-content {
-                flex-direction: column;
+                grid-template-columns: 1fr;
                 text-align: center;
             }
-            
-            .stats {
-                justify-content: center;
+
+            .dashboard-container {
+                grid-template-columns: 1fr;
             }
-            
-            .admin-layout {
-                flex-direction: column;
-            }
-            
-            .admin-sidebar {
-                width: 100%;
-                min-height: auto;
-            }
-            
-            .admin-menu {
-                display: flex;
-                overflow-x: auto;
-            }
-            
-            .admin-menu li {
-                white-space: nowrap;
+
+            .sidebar {
+                position: static;
+                margin-bottom: 20px;
             }
         }
 
         @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                gap: 20px;
+            .mobile-menu-btn {
+                display: block;
             }
-            
+
             .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 99;
             }
-            
-            .hero-title {
-                font-size: 2.5rem;
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
             }
-            
-            .section-title {
-                font-size: 2rem;
+
+            .hero-text h1 {
+                font-size: 2.2rem;
             }
-            
-            .plan-card.popular {
-                transform: none;
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
             }
-            
-            .plan-card.popular:hover {
-                transform: translateY(-10px);
-            }
-            
-            .tabs {
-                justify-content: center;
+
+            .plans-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
         }
 
         @media (max-width: 576px) {
-            .hero-title {
-                font-size: 2rem;
+            .dashboard-stats {
+                grid-template-columns: 1fr;
             }
-            
+
             .stats {
-                flex-direction: column;
-                gap: 25px;
+                grid-template-columns: 1fr;
             }
-            
-            .btn {
-                padding: 10px 18px;
+
+            .plans-container {
+                grid-template-columns: 1fr;
             }
-            
-            .form-row {
-                flex-direction: column;
-                gap: 0;
+
+            .payment-methods {
+                grid-template-columns: repeat(2, 1fr);
             }
+
+            .admin-controls {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Login/Register Form */
+        .auth-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            padding: 40px 20px;
+        }
+
+        .auth-box {
+            width: 100%;
+            max-width: 450px;
+            background-color: var(--white);
+            border-radius: var(--radius);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .auth-header {
+            padding: 30px;
+            background-color: var(--primary-blue);
+            color: white;
+            text-align: center;
+        }
+
+        .auth-body {
+            padding: 30px;
+        }
+
+        /* Homepage Sections */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: var(--radius);
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .faq-question {
+            padding: 20px;
+            background-color: var(--white);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background-color: var(--white);
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .faq-answer.active {
+            padding: 20px;
+            max-height: 300px;
         }
     </style>
 </head>
@@ -859,23 +984,30 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <div class="logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="logo-text">Finvest</div>
-                </div>
-                <div class="nav-links">
+                <a href="#" class="logo">
+                    <i class="fas fa-chart-line"></i>
+                    <span>FinVest Pro</span>
+                </a>
+                
+                <div class="nav-links" id="navLinks">
                     <a href="#home">Home</a>
                     <a href="#plans">Investment Plans</a>
                     <a href="#dashboard">Dashboard</a>
-                    <a href="#admin">Admin Panel</a>
+                    <a href="#about">About</a>
                     <a href="#faq">FAQ</a>
+                    
+                    <div class="user-menu">
+                        <div class="user-avatar" id="userAvatar">MS</div>
+                        <div>
+                            <div class="user-name" id="userName">Minhaz Sarker</div>
+                            <div class="user-balance">৳ 25,450.00</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="nav-buttons">
-                    <button class="btn btn-outline" id="loginBtn">Login</button>
-                    <button class="btn btn-primary" id="registerBtn">Register</button>
-                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
             </nav>
         </div>
     </header>
@@ -885,634 +1017,577 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="hero-title">Smart Investing for Bangladesh's Future</h1>
-                    <p class="hero-subtitle">Join thousands of investors earning daily profits with our secure, automated investment platform. Get started with as little as ৳500 and watch your wealth grow.</p>
-                    <button class="btn btn-primary btn-large" style="padding: 15px 30px; font-size: 1.1rem;">Start Investing Now</button>
-                    <div class="stats">
-                        <div class="stat-item">
-                            <h3>৳42.5M+</h3>
-                            <p>Total Invested</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>12,850+</h3>
-                            <p>Active Investors</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>৳8.2M+</h3>
-                            <p>Profits Paid</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <!-- Using a placeholder image that represents investment/finance -->
-                    <div style="width: 100%; max-width: 500px; background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue)); border-radius: var(--border-radius); padding: 20px; color: white; box-shadow: var(--shadow-lg);">
-                        <h3 style="margin-bottom: 15px; color: white;">Live Investment Dashboard</h3>
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
-                            <div>
-                                <p style="font-size: 0.9rem;">Your Balance</p>
-                                <h2 style="font-size: 2rem;">৳12,450</h2>
-                            </div>
-                            <div>
-                                <p style="font-size: 0.9rem;">Today's Profit</p>
-                                <h2 style="font-size: 2rem; color: var(--accent-green);">৳345</h2>
-                            </div>
-                        </div>
-                        <div style="height: 150px; background-color: rgba(255,255,255,0.1); border-radius: 10px; display: flex; align-items: flex-end; padding: 15px;">
-                            <div style="display: flex; justify-content: space-between; width: 100%;">
-                                <div style="height: 80px; width: 40px; background-color: var(--accent-green); border-radius: 5px;"></div>
-                                <div style="height: 110px; width: 40px; background-color: var(--accent-green); border-radius: 5px;"></div>
-                                <div style="height: 60px; width: 40px; background-color: var(--accent-green); border-radius: 5px;"></div>
-                                <div style="height: 90px; width: 40px; background-color: var(--accent-green); border-radius: 5px;"></div>
-                                <div style="height: 120px; width: 40px; background-color: var(--accent-green); border-radius: 5px;"></div>
-                                <div style="height: 70px; width: 40px; background-color: var(--accent-green); border-radius: 5px;"></div>
-                                <div style="height: 100px; width: 40px; background-color: var(--accent-green); border-radius: 5px;"></div>
-                            </div>
-                        </div>
-                        <p style="margin-top: 15px; font-size: 0.9rem; text-align: center;">Weekly Profit Growth</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <h2 class="section-title">Why Choose Finvest?</h2>
-            <p class="section-subtitle">We combine cutting-edge technology with proven investment strategies to deliver consistent returns for our members.</p>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Bank-Level Security</h3>
-                    <p>Your funds and personal data are protected with 256-bit SSL encryption and multi-factor authentication.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
-                    <h3>Daily Auto Income</h3>
-                    <p>Earn predictable daily profits automatically credited to your wallet. No manual actions required.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Bangladesh Payment Support</h3>
-                    <p>Deposit and withdraw instantly using bKash, Nagad, Rocket, Upay, and bank transfers.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3>24/7 Customer Support</h3>
-                    <p>Our dedicated support team is available round the clock to assist you with any questions or issues.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Investment Plans -->
-    <section class="plans" id="plans">
-        <div class="container">
-            <h2 class="section-title">Investment Plans</h2>
-            <p class="section-subtitle">Choose from our flexible investment plans designed to match your financial goals. Higher investments yield better returns.</p>
-            <div class="plans-grid">
-                <div class="plan-card">
-                    <div class="plan-header">
-                        <h3 class="plan-name">Starter Plan</h3>
-                        <div class="plan-amount">৳500 - ৳5,000</div>
-                        <div class="plan-duration">Daily Profit: 3.5% for 30 Days</div>
-                    </div>
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check-circle"></i> Minimum Deposit: ৳500</li>
-                        <li><i class="fas fa-check-circle"></i> Maximum Deposit: ৳5,000</li>
-                        <li><i class="fas fa-check-circle"></i> Daily Profit: 3.5%</li>
-                        <li><i class="fas fa-check-circle"></i> Duration: 30 Days</li>
-                        <li><i class="fas fa-check-circle"></i> Total Return: 105%</li>
-                        <li><i class="fas fa-check-circle"></i> Principal Returned</li>
-                    </ul>
-                    <button class="btn btn-primary" style="width: 100%;">Select Plan</button>
-                </div>
-                <div class="plan-card popular">
-                    <div class="plan-badge">Most Popular</div>
-                    <div class="plan-header">
-                        <h3 class="plan-name">Professional Plan</h3>
-                        <div class="plan-amount">৳5,001 - ৳50,000</div>
-                        <div class="plan-duration">Daily Profit: 4.2% for 45 Days</div>
-                    </div>
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check-circle"></i> Minimum Deposit: ৳5,001</li>
-                        <li><i class="fas fa-check-circle"></i> Maximum Deposit: ৳50,000</li>
-                        <li><i class="fas fa-check-circle"></i> Daily Profit: 4.2%</li>
-                        <li><i class="fas fa-check-circle"></i> Duration: 45 Days</li>
-                        <li><i class="fas fa-check-circle"></i> Total Return: 189%</li>
-                        <li><i class="fas fa-check-circle"></i> Principal Returned</li>
-                    </ul>
-                    <button class="btn btn-success" style="width: 100%;">Select Plan</button>
-                </div>
-                <div class="plan-card">
-                    <div class="plan-header">
-                        <h3 class="plan-name">Premium Plan</h3>
-                        <div class="plan-amount">৳50,001 - ৳500,000</div>
-                        <div class="plan-duration">Daily Profit: 5.0% for 60 Days</div>
-                    </div>
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check-circle"></i> Minimum Deposit: ৳50,001</li>
-                        <li><i class="fas fa-check-circle"></i> Maximum Deposit: ৳500,000</li>
-                        <li><i class="fas fa-check-circle"></i> Daily Profit: 5.0%</li>
-                        <li><i class="fas fa-check-circle"></i> Duration: 60 Days</li>
-                        <li><i class="fas fa-check-circle"></i> Total Return: 300%</li>
-                        <li><i class="fas fa-check-circle"></i> Principal Returned</li>
-                    </ul>
-                    <button class="btn btn-primary" style="width: 100%;">Select Plan</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- User Dashboard -->
-    <section class="dashboard-section" id="dashboard">
-        <div class="container">
-            <h2 class="section-title">User Dashboard</h2>
-            <p class="section-subtitle">Manage your investments, track earnings, and process transactions from your personal dashboard.</p>
-            
-            <!-- Dashboard Tabs -->
-            <div class="tabs">
-                <button class="tab active" data-tab="overview">Overview</button>
-                <button class="tab" data-tab="invest">Invest</button>
-                <button class="tab" data-tab="deposit">Deposit</button>
-                <button class="tab" data-tab="withdraw">Withdraw</button>
-                <button class="tab" data-tab="earnings">Earnings</button>
-                <button class="tab" data-tab="referrals">Referrals</button>
-            </div>
-            
-            <!-- Overview Tab -->
-            <div class="tab-content active" id="overview">
-                <div class="dashboard-grid">
-                    <div class="dashboard-card wallet">
-                        <h3>Wallet Balance</h3>
-                        <div class="amount">৳12,450 <small>(+৳345 today)</small></div>
-                    </div>
-                    <div class="dashboard-card">
-                        <h3>Active Investments</h3>
-                        <div class="amount">৳25,000</div>
-                    </div>
-                    <div class="dashboard-card">
-                        <h3>Total Earnings</h3>
-                        <div class="amount">৳8,750</div>
-                    </div>
-                    <div class="dashboard-card">
-                        <h3>Referral Income</h3>
-                        <div class="amount">৳1,250</div>
-                    </div>
-                </div>
-                
-                <h3 style="margin-bottom: 20px;">Active Investments</h3>
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Plan</th>
-                                <th>Amount</th>
-                                <th>Daily Profit</th>
-                                <th>Days Left</th>
-                                <th>Total Earned</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Professional Plan</td>
-                                <td>৳15,000</td>
-                                <td>৳630</td>
-                                <td>22/45</td>
-                                <td>৳13,860</td>
-                                <td><span class="status running">Running</span></td>
-                            </tr>
-                            <tr>
-                                <td>Starter Plan</td>
-                                <td>৳5,000</td>
-                                <td>৳175</td>
-                                <td>15/30</td>
-                                <td>৳2,625</td>
-                                <td><span class="status running">Running</span></td>
-                            </tr>
-                            <tr>
-                                <td>Professional Plan</td>
-                                <td>৳5,000</td>
-                                <td>৳210</td>
-                                <td>45/45</td>
-                                <td>৳9,450</td>
-                                <td><span class="status pending">Completed</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            
-            <!-- Deposit Tab -->
-            <div class="tab-content" id="deposit">
-                <h3 style="margin-bottom: 20px;">Make a Deposit</h3>
-                <div class="payment-methods">
-                    <div class="payment-method active" data-method="bkash">
-                        <i class="fas fa-mobile-alt bkash"></i>
-                        <div>
-                            <h4 style="margin-bottom: 5px;">bKash</h4>
-                            <p style="font-size: 0.9rem;">Send to: 017XX-XXXXXX</p>
-                        </div>
-                    </div>
-                    <div class="payment-method" data-method="nagad">
-                        <i class="fas fa-wallet nagad"></i>
-                        <div>
-                            <h4 style="margin-bottom: 5px;">Nagad</h4>
-                            <p style="font-size: 0.9rem;">Send to: 017XX-XXXXXX</p>
-                        </div>
-                    </div>
-                    <div class="payment-method" data-method="rocket">
-                        <i class="fas fa-rocket rocket"></i>
-                        <div>
-                            <h4 style="margin-bottom: 5px;">Rocket</h4>
-                            <p style="font-size: 0.9rem;">Send to: 017XX-XXXXXX</p>
-                        </div>
-                    </div>
-                    <div class="payment-method" data-method="upay">
-                        <i class="fas fa-qrcode upay"></i>
-                        <div>
-                            <h4 style="margin-bottom: 5px;">Upay</h4>
-                            <p style="font-size: 0.9rem;">Send to: 017XX-XXXXXX</p>
-                        </div>
-                    </div>
-                    <div class="payment-method" data-method="bank">
-                        <i class="fas fa-university bank"></i>
-                        <div>
-                            <h4 style="margin-bottom: 5px;">Bank Transfer</h4>
-                            <p style="font-size: 0.9rem;">Prime Bank Ltd.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="background-color: var(--white); border-radius: var(--border-radius); padding: 30px; margin-top: 30px; box-shadow: var(--shadow);">
-                    <div class="form-group">
-                        <label>Select Investment Plan</label>
-                        <select class="form-control">
-                            <option>Starter Plan (3.5% daily for 30 days)</option>
-                            <option selected>Professional Plan (4.2% daily for 45 days)</option>
-                            <option>Premium Plan (5.0% daily for 60 days)</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Deposit Amount (৳)</label>
-                        <input type="number" class="form-control" placeholder="Enter amount" value="5000">
-                    </div>
-                    <div class="form-group">
-                        <label>Transaction ID / Reference</label>
-                        <input type="text" class="form-control" placeholder="Enter transaction ID from payment">
-                    </div>
-                    <button class="btn btn-primary" style="width: 100%; padding: 15px;">Submit Deposit Request</button>
-                </div>
-                
-                <h3 style="margin: 40px 0 20px;">Deposit History</h3>
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Amount</th>
-                                <th>Method</th>
-                                <th>Transaction ID</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>2023-10-15</td>
-                                <td>৳15,000</td>
-                                <td>bKash</td>
-                                <td>7H9J2K5L8M</td>
-                                <td><span class="status approved">Approved</span></td>
-                            </tr>
-                            <tr>
-                                <td>2023-10-10</td>
-                                <td>৳5,000</td>
-                                <td>Nagad</td>
-                                <td>3N4P6Q8R2S</td>
-                                <td><span class="status approved">Approved</span></td>
-                            </tr>
-                            <tr>
-                                <td>2023-10-05</td>
-                                <td>৳5,000</td>
-                                <td>Rocket</td>
-                                <td>1T4U7W0Y2Z</td>
-                                <td><span class="status approved">Approved</span></td>
-                            </tr>
-                            <tr>
-                                <td>2023-10-18</td>
-                                <td>৳10,000</td>
-                                <td>Bank</td>
-                                <td>5X8B2D4F6G</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            
-            <!-- Withdraw Tab -->
-            <div class="tab-content" id="withdraw">
-                <div style="background-color: var(--white); border-radius: var(--border-radius); padding: 30px; margin-bottom: 30px; box-shadow: var(--shadow);">
-                    <h3 style="margin-bottom: 20px;">Request Withdrawal</h3>
-                    <div class="form-group">
-                        <label>Withdrawal Method</label>
-                        <select class="form-control">
-                            <option>bKash</option>
-                            <option>Nagad</option>
-                            <option>Rocket</option>
-                            <option>Bank Transfer</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Account Number / bKash Number</label>
-                        <input type="text" class="form-control" placeholder="Enter your account number" value="017XX-XXXXXX">
-                    </div>
-                    <div class="form-group">
-                        <label>Withdrawal Amount (৳)</label>
-                        <input type="number" class="form-control" placeholder="Enter amount" value="5000">
-                        <p style="font-size: 0.9rem; margin-top: 8px; color: var(--gray-medium);">Available Balance: ৳12,450</p>
-                    </div>
-                    <button class="btn btn-primary" style="width: 100%; padding: 15px;">Submit Withdrawal Request</button>
-                </div>
-                
-                <h3 style="margin-bottom: 20px;">Withdrawal History</h3>
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Amount</th>
-                                <th>Method</th>
-                                <th>Account</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>2023-10-12</td>
-                                <td>৳3,000</td>
-                                <td>bKash</td>
-                                <td>017XX-XXXXXX</td>
-                                <td><span class="status approved">Approved</span></td>
-                            </tr>
-                            <tr>
-                                <td>2023-10-05</td>
-                                <td>৳5,000</td>
-                                <td>Nagad</td>
-                                <td>017XX-XXXXXX</td>
-                                <td><span class="status approved">Approved</span></td>
-                            </tr>
-                            <tr>
-                                <td>2023-10-18</td>
-                                <td>৳2,500</td>
-                                <td>Bank</td>
-                                <td>Prime Bank ****4567</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-                            <tr>
-                                <td>2023-09-28</td>
-                                <td>৳10,000</td>
-                                <td>Rocket</td>
-                                <td>017XX-XXXXXX</td>
-                                <td><span class="status rejected">Rejected</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Admin Panel -->
-    <section class="dashboard-section" id="admin">
-        <div class="container">
-            <h2 class="section-title">Admin Control Panel</h2>
-            <p class="section-subtitle">Manage users, investments, deposits, withdrawals, and platform settings.</p>
-            
-            <div class="admin-panel">
-                <div class="admin-header">
-                    <div>
-                        <h3 style="color: white;">Finvest Admin Panel</h3>
-                        <p style="color: #cbd5e1; font-size: 0.9rem;">Logged in as: <strong>site11</strong> | <span id="adminTime">Last login: Today, 10:30 AM</span></p>
-                    </div>
-                    <button class="btn btn-outline" style="color: white; border-color: white;">Logout</button>
-                </div>
-                
-                <div class="admin-layout">
-                    <div class="admin-sidebar">
-                        <ul class="admin-menu">
-                            <li class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</li>
-                            <li><i class="fas fa-users"></i> User Management</li>
-                            <li><i class="fas fa-hand-holding-usd"></i> Deposit Requests</li>
-                            <li><i class="fas fa-money-check-alt"></i> Withdrawal Requests</li>
-                            <li><i class="fas fa-chart-line"></i> Investment Plans</li>
-                            <li><i class="fas fa-cog"></i> Site Settings</li>
-                            <li><i class="fas fa-user-shield"></i> Admin Users</li>
-                        </ul>
+                    <h1>Smart Investing For Bangladeshi Entrepreneurs</h1>
+                    <p>Join thousands of investors earning daily profits with our secure, high-return investment plans. Backed by advanced security and 24/7 customer support.</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" id="startInvestingBtn">
+                            <i class="fas fa-rocket"></i> Start Investing Now
+                        </button>
+                        <button class="btn btn-outline">
+                            <i class="fas fa-play-circle"></i> How It Works
+                        </button>
                     </div>
                     
-                    <div class="admin-content">
-                        <h3 style="color: var(--dark-blue); margin-bottom: 25px;">Admin Dashboard Overview</h3>
-                        
-                        <div class="dashboard-grid" style="margin-bottom: 30px;">
-                            <div class="dashboard-card">
-                                <h3>Total Users</h3>
-                                <div class="amount">12,850</div>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="number" id="totalUsers">15,420+</div>
+                            <div class="label">Active Investors</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="number" id="totalInvested">৳ 4.2Cr+</div>
+                            <div class="label">Total Invested</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="number" id="totalPaid">৳ 2.8Cr+</div>
+                            <div class="label">Profits Paid</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <div class="card" style="background-color: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white;">
+                        <h3 style="color: white; margin-bottom: 20px;">Quick Deposit</h3>
+                        <div class="payment-methods">
+                            <div class="payment-method bkash active">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>bKash</span>
                             </div>
-                            <div class="dashboard-card">
-                                <h3>Total Deposits</h3>
-                                <div class="amount">৳42.5M</div>
+                            <div class="payment-method nagad">
+                                <i class="fas fa-wallet"></i>
+                                <span>Nagad</span>
                             </div>
-                            <div class="dashboard-card">
-                                <h3>Total Withdrawals</h3>
-                                <div class="amount">৳18.3M</div>
-                            </div>
-                            <div class="dashboard-card">
-                                <h3>Active Investments</h3>
-                                <div class="amount">৳28.7M</div>
+                            <div class="payment-method rocket">
+                                <i class="fas fa-rocket"></i>
+                                <span>Rocket</span>
                             </div>
                         </div>
                         
-                        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin-bottom: 30px;">
-                            <div style="background-color: var(--white); border-radius: var(--border-radius); padding: 25px; box-shadow: var(--shadow);">
-                                <h4 style="margin-bottom: 20px;">Recent Deposit Requests</h4>
-                                <div class="table-container" style="padding: 0; box-shadow: none;">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th>User</th>
-                                                <th>Amount</th>
-                                                <th>Method</th>
-                                                <th>Time</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>user_rafiq</td>
-                                                <td>৳15,000</td>
-                                                <td>bKash</td>
-                                                <td>10:15 AM</td>
-                                                <td>
-                                                    <button class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem; margin-right: 5px;">Approve</button>
-                                                    <button class="btn btn-outline" style="padding: 5px 10px; font-size: 0.8rem;">Reject</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>user_karim</td>
-                                                <td>৳5,000</td>
-                                                <td>Nagad</td>
-                                                <td>09:45 AM</td>
-                                                <td>
-                                                    <button class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem; margin-right: 5px;">Approve</button>
-                                                    <button class="btn btn-outline" style="padding: 5px 10px; font-size: 0.8rem;">Reject</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>investor_123</td>
-                                                <td>৳25,000</td>
-                                                <td>Bank</td>
-                                                <td>Yesterday</td>
-                                                <td>
-                                                    <button class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem; margin-right: 5px;">Approve</button>
-                                                    <button class="btn btn-outline" style="padding: 5px 10px; font-size: 0.8rem;">Reject</button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                        <div class="form-group" style="margin-top: 20px;">
+                            <label class="form-label">Amount (৳)</label>
+                            <input type="number" class="form-control" placeholder="Enter amount" min="500" value="5000" id="quickDepositAmount">
+                        </div>
+                        
+                        <button class="btn btn-success" style="width: 100%; margin-top: 15px;">
+                            <i class="fas fa-paper-plane"></i> Deposit Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Area (Initially hidden, shown after login) -->
+    <div id="dashboardArea" style="display: none;">
+        <div class="container">
+            <div class="dashboard-container">
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <ul class="sidebar-menu">
+                        <li><a href="#" class="active" data-tab="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                        <li><a href="#" data-tab="invest"><i class="fas fa-chart-line"></i> Invest Now</a></li>
+                        <li><a href="#" data-tab="myInvestments"><i class="fas fa-coins"></i> My Investments</a></li>
+                        <li><a href="#" data-tab="deposit"><i class="fas fa-arrow-down"></i> Deposit Funds</a></li>
+                        <li><a href="#" data-tab="withdraw"><i class="fas fa-arrow-up"></i> Withdraw Funds</a></li>
+                        <li><a href="#" data-tab="history"><i class="fas fa-history"></i> Transaction History</a></li>
+                        <li><a href="#" data-tab="referrals"><i class="fas fa-users"></i> Referrals</a></li>
+                        <li><a href="#" data-tab="profile"><i class="fas fa-user-cog"></i> Profile Settings</a></li>
+                        <li><a href="#" data-tab="admin" id="adminTabLink" style="display: none;"><i class="fas fa-crown"></i> Admin Panel</a></li>
+                        <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                    </ul>
+                </div>
+
+                <!-- Main Content -->
+                <div class="main-content">
+                    <!-- Dashboard Tab -->
+                    <div class="tab-content active" id="dashboardTab">
+                        <h2 style="margin-bottom: 20px;">Welcome back, <span id="dashboardUserName">Minhaz</span>!</h2>
+                        
+                        <div class="dashboard-stats">
+                            <div class="stat-card">
+                                <div class="value">৳ <span id="walletBalance">25,450.00</span></div>
+                                <div class="label">Wallet Balance</div>
+                                <i class="fas fa-wallet"></i>
                             </div>
-                            
-                            <div style="background-color: var(--white); border-radius: var(--border-radius); padding: 25px; box-shadow: var(--shadow);">
-                                <h4 style="margin-bottom: 20px;">Quick Actions</h4>
-                                <div style="display: flex; flex-direction: column; gap: 15px;">
-                                    <button class="btn btn-primary">Add New Investment Plan</button>
-                                    <button class="btn btn-outline">Manual Balance Adjust</button>
-                                    <button class="btn btn-outline">Send Site Notification</button>
-                                    <button class="btn btn-outline">View All Users</button>
-                                    <button class="btn btn-outline">Backup Database</button>
-                                </div>
+                            <div class="stat-card">
+                                <div class="value">৳ <span id="totalEarnings">12,850.00</span></div>
+                                <div class="label">Total Earnings</div>
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="stat-card">
+                                <div class="value" id="activeInvestments">3</div>
+                                <div class="label">Active Investments</div>
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="stat-card">
+                                <div class="value" id="referralCount">24</div>
+                                <div class="label">Referrals</div>
+                                <i class="fas fa-users"></i>
                             </div>
                         </div>
                         
-                        <div style="background-color: var(--white); border-radius: var(--border-radius); padding: 25px; box-shadow: var(--shadow);">
-                            <h4 style="margin-bottom: 20px;">User Management - Recent Registrations</h4>
-                            <div class="table-container" style="padding: 0; box-shadow: none;">
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-chart-bar"></i> Recent Earnings</h3>
+                            <div class="table-container">
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th>Username</th>
-                                            <th>Email</th>
-                                            <th>Phone</th>
-                                            <th>Balance</th>
+                                            <th>Date</th>
+                                            <th>Plan</th>
+                                            <th>Amount</th>
                                             <th>Status</th>
-                                            <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="earningsTable">
+                                        <!-- Earnings rows will be added by JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-lightbulb"></i> Quick Actions</h3>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;">
+                                <button class="btn btn-primary" data-tab="invest">
+                                    <i class="fas fa-plus-circle"></i> New Investment
+                                </button>
+                                <button class="btn btn-success" data-tab="deposit">
+                                    <i class="fas fa-arrow-down"></i> Deposit Funds
+                                </button>
+                                <button class="btn btn-outline" data-tab="withdraw">
+                                    <i class="fas fa-arrow-up"></i> Withdraw Earnings
+                                </button>
+                                <button class="btn btn-outline" data-tab="referrals">
+                                    <i class="fas fa-share-alt"></i> Invite Friends
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Invest Tab -->
+                    <div class="tab-content" id="investTab">
+                        <h2 style="margin-bottom: 20px;">Investment Plans</h2>
+                        <p style="margin-bottom: 30px; color: var(--gray-600);">Choose from our carefully crafted investment plans with daily returns. All profits are calculated automatically and credited daily.</p>
+                        
+                        <div class="plans-container">
+                            <!-- Plan cards will be added by JS -->
+                        </div>
+                    </div>
+                    
+                    <!-- My Investments Tab -->
+                    <div class="tab-content" id="myInvestmentsTab">
+                        <h2 style="margin-bottom: 20px;">My Active Investments</h2>
+                        
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-clock"></i> Active Plans</h3>
+                            <div class="table-container">
+                                <table>
+                                    <thead>
                                         <tr>
-                                            <td>new_user_99</td>
-                                            <td>newuser@email.com</td>
-                                            <td>017XX-XXXXXX</td>
-                                            <td>৳0</td>
-                                            <td><span class="status approved">Active</span></td>
-                                            <td>
-                                                <button class="btn btn-outline" style="padding: 5px 10px; font-size: 0.8rem;">Edit</button>
-                                            </td>
+                                            <th>Plan</th>
+                                            <th>Invested</th>
+                                            <th>Daily Profit</th>
+                                            <th>Total Earned</th>
+                                            <th>Days Left</th>
+                                            <th>Status</th>
                                         </tr>
+                                    </thead>
+                                    <tbody id="activeInvestmentsTable">
+                                        <!-- Active investments will be added by JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-check-circle"></i> Completed Investments</h3>
+                            <p style="margin-bottom: 20px; color: var(--gray-600);">You have no completed investments yet. Start investing to see your completed plans here.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Deposit Tab -->
+                    <div class="tab-content" id="depositTab">
+                        <h2 style="margin-bottom: 20px;">Deposit Funds</h2>
+                        
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-arrow-down"></i> Choose Payment Method</h3>
+                            <p style="margin-bottom: 20px; color: var(--gray-600);">Select your preferred payment method to deposit funds into your investment wallet.</p>
+                            
+                            <div class="payment-methods">
+                                <div class="payment-method bkash active" data-method="bkash">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span>bKash</span>
+                                </div>
+                                <div class="payment-method nagad" data-method="nagad">
+                                    <i class="fas fa-wallet"></i>
+                                    <span>Nagad</span>
+                                </div>
+                                <div class="payment-method rocket" data-method="rocket">
+                                    <i class="fas fa-rocket"></i>
+                                    <span>Rocket</span>
+                                </div>
+                                <div class="payment-method upay" data-method="upay">
+                                    <i class="fas fa-qrcode"></i>
+                                    <span>Upay</span>
+                                </div>
+                                <div class="payment-method bank" data-method="bank">
+                                    <i class="fas fa-university"></i>
+                                    <span>Bank Transfer</span>
+                                </div>
+                            </div>
+                            
+                            <div id="paymentDetails" style="margin-top: 30px; padding: 20px; background-color: var(--gray-100); border-radius: var(--radius);">
+                                <h4 style="margin-bottom: 15px;">bKash Payment Instructions</h4>
+                                <p><strong>Number:</strong> 017XX-XXXXXX</p>
+                                <p><strong>Type:</strong> Personal</p>
+                                <p>Send money to this number and enter the transaction ID below.</p>
+                            </div>
+                            
+                            <div class="form-group" style="margin-top: 25px;">
+                                <label class="form-label">Amount (৳)</label>
+                                <input type="number" class="form-control" id="depositAmount" min="500" placeholder="Minimum ৳500">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Transaction ID</label>
+                                <input type="text" class="form-control" id="transactionId" placeholder="Enter transaction ID from payment">
+                            </div>
+                            
+                            <button class="btn btn-success" id="submitDepositBtn" style="width: 100%; padding: 14px;">
+                                <i class="fas fa-paper-plane"></i> Submit Deposit Request
+                            </button>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-history"></i> Recent Deposits</h3>
+                            <div class="table-container">
+                                <table>
+                                    <thead>
                                         <tr>
-                                            <td>investor_pro</td>
-                                            <td>pro@email.com</td>
-                                            <td>018XX-XXXXXX</td>
-                                            <td>৳125,000</td>
-                                            <td><span class="status approved">Active</span></td>
-                                            <td>
-                                                <button class="btn btn-outline" style="padding: 5px 10px; font-size: 0.8rem;">Edit</button>
-                                            </td>
+                                            <th>Date</th>
+                                            <th>Method</th>
+                                            <th>Amount</th>
+                                            <th>Transaction ID</th>
+                                            <th>Status</th>
                                         </tr>
-                                        <tr>
-                                            <td>suspended_user</td>
-                                            <td>suspended@email.com</td>
-                                            <td>019XX-XXXXXX</td>
-                                            <td>৳5,000</td>
-                                            <td><span class="status rejected">Banned</span></td>
-                                            <td>
-                                                <button class="btn btn-outline" style="padding: 5px 10px; font-size: 0.8rem;">Activate</button>
-                                            </td>
-                                        </tr>
+                                    </thead>
+                                    <tbody id="depositHistoryTable">
+                                        <!-- Deposit history will be added by JS -->
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- Withdraw Tab -->
+                    <div class="tab-content" id="withdrawTab">
+                        <h2 style="margin-bottom: 20px;">Withdraw Earnings</h2>
+                        
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-arrow-up"></i> Request Withdrawal</h3>
+                            <p style="margin-bottom: 20px; color: var(--gray-600);">Withdraw your earnings to your preferred payment method. Minimum withdrawal is ৳500.</p>
+                            
+                            <div class="payment-methods">
+                                <div class="payment-method bkash active" data-method="bkash">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span>bKash</span>
+                                </div>
+                                <div class="payment-method nagad" data-method="nagad">
+                                    <i class="fas fa-wallet"></i>
+                                    <span>Nagad</span>
+                                </div>
+                                <div class="payment-method rocket" data-method="rocket">
+                                    <i class="fas fa-rocket"></i>
+                                    <span>Rocket</span>
+                                </div>
+                                <div class="payment-method bank" data-method="bank">
+                                    <i class="fas fa-university"></i>
+                                    <span>Bank Account</span>
+                                </div>
+                            </div>
+                            
+                            <div style="margin-top: 30px; padding: 20px; background-color: var(--gray-100); border-radius: var(--radius);">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                                    <div>Available Balance:</div>
+                                    <div style="font-weight: 600;">৳ <span id="withdrawBalance">25,450.00</span></div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Withdrawal Amount (৳)</label>
+                                    <input type="number" class="form-control" id="withdrawAmount" min="500" placeholder="Enter amount">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Account Number/Phone</label>
+                                    <input type="text" class="form-control" id="accountNumber" placeholder="Enter your account/phone number">
+                                </div>
+                                
+                                <button class="btn btn-primary" id="submitWithdrawBtn" style="width: 100%; padding: 14px;">
+                                    <i class="fas fa-paper-plane"></i> Request Withdrawal
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-history"></i> Withdrawal History</h3>
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Method</th>
+                                            <th>Amount</th>
+                                            <th>Account</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="withdrawHistoryTable">
+                                        <!-- Withdrawal history will be added by JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Admin Panel Tab (Initially hidden) -->
+                    <div class="tab-content" id="adminTab">
+                        <h2 style="margin-bottom: 20px;">Admin Dashboard</h2>
+                        <p style="margin-bottom: 30px; color: var(--gray-600);">Manage users, deposits, withdrawals, and investment plans.</p>
+                        
+                        <div class="admin-controls">
+                            <div class="admin-control-btn" data-admin-tab="users">
+                                <i class="fas fa-users"></i>
+                                <div>User Management</div>
+                            </div>
+                            <div class="admin-control-btn" data-admin-tab="deposits">
+                                <i class="fas fa-arrow-down"></i>
+                                <div>Deposit Requests</div>
+                            </div>
+                            <div class="admin-control-btn" data-admin-tab="withdrawals">
+                                <i class="fas fa-arrow-up"></i>
+                                <div>Withdrawal Requests</div>
+                            </div>
+                            <div class="admin-control-btn" data-admin-tab="plans">
+                                <i class="fas fa-chart-line"></i>
+                                <div>Investment Plans</div>
+                            </div>
+                            <div class="admin-control-btn" data-admin-tab="settings">
+                                <i class="fas fa-cog"></i>
+                                <div>Site Settings</div>
+                            </div>
+                            <div class="admin-control-btn" data-admin-tab="reports">
+                                <i class="fas fa-chart-pie"></i>
+                                <div>Financial Reports</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Admin Sub-tabs content will be loaded here -->
+                        <div id="adminContent">
+                            <div class="card">
+                                <h3 class="card-title"><i class="fas fa-tachometer-alt"></i> Platform Overview</h3>
+                                <div class="dashboard-stats">
+                                    <div class="stat-card">
+                                        <div class="value" id="adminTotalUsers">1,542</div>
+                                        <div class="label">Total Users</div>
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="value">৳ <span id="adminTotalDeposits">42,850,000</span></div>
+                                        <div class="label">Total Deposits</div>
+                                        <i class="fas fa-arrow-down"></i>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="value">৳ <span id="adminTotalWithdrawals">28,450,000</span></div>
+                                        <div class="label">Total Withdrawals</div>
+                                        <i class="fas fa-arrow-up"></i>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="value">৳ <span id="adminTotalProfits">14,400,000</span></div>
+                                        <div class="label">Total Profits Paid</div>
+                                        <i class="fas fa-coins"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login/Register Modal -->
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="authModalTitle">Login to FinVest Pro</h3>
+                <button class="modal-close" id="closeAuthModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="tabs" style="margin-bottom: 25px;">
+                    <button class="tab active" id="loginTab">Login</button>
+                    <button class="tab" id="registerTab">Register</button>
+                </div>
+                
+                <div id="loginForm">
+                    <div class="form-group">
+                        <label class="form-label">Username/Email</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" class="form-control" id="loginUsername" placeholder="Enter username or email">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" class="form-control" id="loginPassword" placeholder="Enter password">
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px; font-size: 0.9rem; color: var(--gray-600);">
+                        <i class="fas fa-info-circle"></i> Admin Demo: Username: <strong>site11</strong>, Password: <strong>999999</strong>
+                    </div>
+                    
+                    <button class="btn btn-primary" id="submitLogin" style="width: 100%; padding: 14px;">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
+                </div>
+                
+                <div id="registerForm" style="display: none;">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" class="form-control" id="registerName" placeholder="Enter your full name">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" class="form-control" id="registerEmail" placeholder="Enter your email">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-phone"></i>
+                            <input type="text" class="form-control" id="registerPhone" placeholder="Enter your phone number">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" class="form-control" id="registerPassword" placeholder="Create a password">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Referral Code (Optional)</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-user-friends"></i>
+                            <input type="text" class="form-control" id="registerReferral" placeholder="Enter referral code if any">
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-success" id="submitRegister" style="width: 100%; padding: 14px;">
+                        <i class="fas fa-user-plus"></i> Create Account
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section (Homepage) -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">Why Choose FinVest Pro?</h2>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Bank-Level Security</h3>
+                    <p>Your funds and data are protected with advanced encryption and security protocols.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Instant Payments</h3>
+                    <p>Withdraw your earnings instantly to bKash, Nagad, or Rocket in minutes.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>High Returns</h3>
+                    <p>Earn up to 3.5% daily profit with our carefully optimized investment plans.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Our dedicated support team is available round the clock to assist you.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FAQ Section -->
-    <section class="faq" id="faq">
+    <section class="section" id="faq" style="background-color: var(--white);">
         <div class="container">
             <h2 class="section-title">Frequently Asked Questions</h2>
-            <p class="section-subtitle">Find answers to common questions about our investment platform and services.</p>
             
             <div class="faq-container">
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>How do I start investing with Finvest?</span>
+                        How do I start investing?
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>To start investing, simply register an account, verify your email, make a deposit using any of our supported payment methods (bKash, Nagad, Rocket, Upay, or Bank Transfer), and select an investment plan. Your daily profits will start accruing immediately.</p>
+                        <p>Simply register an account, deposit funds using any Bangladeshi payment method, choose an investment plan, and start earning daily profits.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>When will I receive my daily profits?</span>
+                        What is the minimum deposit?
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Daily profits are automatically calculated and credited to your wallet every 24 hours after your investment becomes active. The exact time depends on when you made your deposit, but typically profits are added at midnight (Bangladesh time).</p>
+                        <p>The minimum deposit is ৳500 for all investment plans. You can deposit any amount above this minimum.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>How long does it take to process withdrawals?</span>
+                        How are profits calculated?
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Withdrawal requests are typically processed within 2-6 hours during business hours. For bKash, Nagad, and Rocket, withdrawals are usually instant once approved. Bank transfers may take 1-3 business days depending on your bank.</p>
+                        <p>Profits are calculated daily based on your chosen plan's percentage. For example, a 2% daily profit on ৳10,000 investment would yield ৳200 per day.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>Is there any referral program?</span>
+                        When can I withdraw my earnings?
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes! We offer a generous referral program where you can earn 5% of your referral's first deposit and 2% of their subsequent deposits. You can find your unique referral link in your dashboard to share with friends and family.</p>
+                        <p>You can withdraw your earnings anytime after they are credited to your wallet. The minimum withdrawal amount is ৳500.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>Is my investment secure?</span>
+                        Is there a referral program?
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Absolutely. We use bank-level SSL encryption to protect all data and transactions. Our investment strategies are managed by professional financial experts with years of experience. Additionally, we maintain complete transparency about our operations and returns.</p>
+                        <p>Yes! You can earn 5% commission on every deposit made by your referrals. Share your unique referral link to start earning.</p>
                     </div>
                 </div>
             </div>
@@ -1522,330 +1597,1155 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3>Finvest</h3>
-                    <p style="color: #cbd5e1; margin-bottom: 20px;">Professional investment platform for Bangladesh investors. Secure, transparent, and profitable.</p>
-                    <div style="display: flex; gap: 15px;">
-                        <div style="width: 40px; height: 40px; background-color: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                            <i class="fab fa-facebook-f"></i>
-                        </div>
-                        <div style="width: 40px; height: 40px; background-color: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                            <i class="fab fa-twitter"></i>
-                        </div>
-                        <div style="width: 40px; height: 40px; background-color: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                            <i class="fab fa-linkedin-in"></i>
-                        </div>
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>FinVest Pro</h3>
+                    <p>Leading investment platform for Bangladeshi entrepreneurs and investors since 2020.</p>
+                    <div style="margin-top: 20px; display: flex; gap: 15px;">
+                        <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
-                <div class="footer-col">
+                
+                <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
                         <li><a href="#home">Home</a></li>
                         <li><a href="#plans">Investment Plans</a></li>
                         <li><a href="#dashboard">Dashboard</a></li>
+                        <li><a href="#about">About Us</a></li>
                         <li><a href="#faq">FAQ</a></li>
-                        <li><a href="#">Contact Us</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
+                
+                <div class="footer-column">
                     <h3>Legal</h3>
                     <ul class="footer-links">
                         <li><a href="#">Terms of Service</a></li>
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Refund Policy</a></li>
                         <li><a href="#">AML Policy</a></li>
-                        <li><a href="#">Risk Disclosure</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h3>Contact Info</h3>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
                     <ul class="footer-links">
-                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Gulshan-1, Dhaka, Bangladesh</li>
-                        <li><i class="fas fa-phone" style="margin-right: 10px;"></i> +880 17XX-XXXXXX</li>
-                        <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> support@finvest.com</li>
-                        <li><i class="fas fa-clock" style="margin-right: 10px;"></i> 24/7 Customer Support</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Gulshan 1, Dhaka, Bangladesh</li>
+                        <li><i class="fas fa-phone"></i> +880 17XX-XXXXXX</li>
+                        <li><i class="fas fa-envelope"></i> support@finvestpro.com</li>
+                        <li><i class="fas fa-clock"></i> 24/7 Support Available</li>
                     </ul>
                 </div>
             </div>
+            
             <div class="copyright">
-                <p>&copy; 2023 Finvest. All rights reserved. | An investment platform designed for Bangladesh.</p>
+                &copy; 2023 FinVest Pro. All rights reserved. | Designed for Bangladesh investors
             </div>
         </div>
     </footer>
 
-    <!-- Login Modal -->
-    <div class="modal" id="loginModal">
-        <div class="modal-content">
-            <div class="close-modal">&times;</div>
-            <h2 style="margin-bottom: 25px;">Login to Your Account</h2>
-            <div class="form-group">
-                <label>Username or Email</label>
-                <input type="text" class="form-control" placeholder="Enter username or email" id="loginUsername">
-            </div>
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" class="form-control" placeholder="Enter password" id="loginPassword">
-            </div>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
-                <div>
-                    <input type="checkbox" id="rememberMe">
-                    <label for="rememberMe" style="margin-left: 8px;">Remember me</label>
-                </div>
-                <a href="#" style="color: var(--primary-blue); text-decoration: none;">Forgot password?</a>
-            </div>
-            <button class="btn btn-primary" style="width: 100%; padding: 15px;" id="loginSubmit">Login</button>
-            <p style="text-align: center; margin-top: 20px; color: var(--gray-medium);">
-                Don't have an account? <a href="#" style="color: var(--primary-blue); text-decoration: none;" id="switchToRegister">Register here</a>
-            </p>
-            
-            <!-- Admin Demo Credentials -->
-            <div style="background-color: #f0f7ff; border-radius: var(--border-radius); padding: 15px; margin-top: 25px;">
-                <h4 style="margin-bottom: 10px; color: var(--primary-blue);">Demo Admin Login</h4>
-                <p style="font-size: 0.9rem; margin-bottom: 5px;"><strong>Username:</strong> site11</p>
-                <p style="font-size: 0.9rem;"><strong>Password:</strong> 999999</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Register Modal -->
-    <div class="modal" id="registerModal">
-        <div class="modal-content">
-            <div class="close-modal">&times;</div>
-            <h2 style="margin-bottom: 25px;">Create New Account</h2>
-            <div class="form-row">
-                <div class="form-group">
-                    <label>First Name</label>
-                    <input type="text" class="form-control" placeholder="Enter first name">
-                </div>
-                <div class="form-group">
-                    <label>Last Name</label>
-                    <input type="text" class="form-control" placeholder="Enter last name">
-                </div>
-            </div>
-            <div class="form-group">
-                <label>Username</label>
-                <input type="text" class="form-control" placeholder="Choose username">
-            </div>
-            <div class="form-group">
-                <label>Email Address</label>
-                <input type="email" class="form-control" placeholder="Enter email">
-            </div>
-            <div class="form-group">
-                <label>Phone Number</label>
-                <input type="text" class="form-control" placeholder="e.g., 017XXXXXXXX">
-            </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" class="form-control" placeholder="Create password">
-                </div>
-                <div class="form-group">
-                    <label>Confirm Password</label>
-                    <input type="password" class="form-control" placeholder="Confirm password">
-                </div>
-            </div>
-            <div class="form-group">
-                <label>Referral Code (Optional)</label>
-                <input type="text" class="form-control" placeholder="Enter referral code if any">
-            </div>
-            <div style="margin-bottom: 25px;">
-                <input type="checkbox" id="agreeTerms">
-                <label for="agreeTerms" style="margin-left: 8px;">I agree to the <a href="#" style="color: var(--primary-blue);">Terms of Service</a> and <a href="#" style="color: var(--primary-blue);">Privacy Policy</a></label>
-            </div>
-            <button class="btn btn-primary" style="width: 100%; padding: 15px;">Create Account</button>
-            <p style="text-align: center; margin-top: 20px; color: var(--gray-medium);">
-                Already have an account? <a href="#" style="color: var(--primary-blue); text-decoration: none;" id="switchToLogin">Login here</a>
-            </p>
-        </div>
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <div id="notificationText">Operation completed successfully!</div>
     </div>
 
     <script>
+        // Platform Data and State
+        const platformData = {
+            isLoggedIn: false,
+            isAdmin: false,
+            currentUser: null,
+            currentTab: 'dashboard',
+            currentAdminTab: 'overview',
+            
+            users: [
+                {
+                    id: 1,
+                    name: "Minhaz Sarker",
+                    email: "minhaz@example.com",
+                    phone: "017XX-XXXXXX",
+                    balance: 25450,
+                    totalEarnings: 12850,
+                    activeInvestments: 3,
+                    referrals: 24,
+                    isAdmin: false
+                },
+                {
+                    id: 2,
+                    name: "Site Admin",
+                    username: "site11",
+                    password: "999999",
+                    email: "admin@finvestpro.com",
+                    phone: "018XX-XXXXXX",
+                    balance: 150000,
+                    totalEarnings: 85000,
+                    activeInvestments: 5,
+                    referrals: 120,
+                    isAdmin: true
+                }
+            ],
+            
+            investmentPlans: [
+                {
+                    id: 1,
+                    name: "Basic Plan",
+                    minAmount: 500,
+                    maxAmount: 10000,
+                    dailyProfit: 1.2,
+                    duration: 30,
+                    description: "Perfect for beginners with low risk tolerance"
+                },
+                {
+                    id: 2,
+                    name: "Pro Plan",
+                    minAmount: 10000,
+                    maxAmount: 50000,
+                    dailyProfit: 1.8,
+                    duration: 45,
+                    description: "Balanced risk and return for experienced investors"
+                },
+                {
+                    id: 3,
+                    name: "Premium Plan",
+                    minAmount: 50000,
+                    maxAmount: 200000,
+                    dailyProfit: 2.5,
+                    duration: 60,
+                    description: "High returns for serious investors"
+                },
+                {
+                    id: 4,
+                    name: "Enterprise Plan",
+                    minAmount: 200000,
+                    maxAmount: 1000000,
+                    dailyProfit: 3.5,
+                    duration: 90,
+                    description: "Maximum returns for high-volume investors"
+                }
+            ],
+            
+            activeInvestments: [
+                {
+                    id: 1,
+                    planId: 2,
+                    planName: "Pro Plan",
+                    invested: 15000,
+                    dailyProfit: 270,
+                    totalEarned: 4050,
+                    startDate: "2023-10-15",
+                    endDate: "2023-11-29",
+                    daysLeft: 15,
+                    status: "active"
+                },
+                {
+                    id: 2,
+                    planId: 1,
+                    planName: "Basic Plan",
+                    invested: 5000,
+                    dailyProfit: 60,
+                    totalEarned: 1200,
+                    startDate: "2023-10-20",
+                    endDate: "2023-11-19",
+                    daysLeft: 10,
+                    status: "active"
+                }
+            ],
+            
+            depositHistory: [
+                {
+                    id: 1,
+                    date: "2023-10-15",
+                    method: "bKash",
+                    amount: 20000,
+                    transactionId: "7H9J2K4L",
+                    status: "approved"
+                },
+                {
+                    id: 2,
+                    date: "2023-10-10",
+                    method: "Nagad",
+                    amount: 10000,
+                    transactionId: "5M3N8P2Q",
+                    status: "approved"
+                }
+            ],
+            
+            withdrawHistory: [
+                {
+                    id: 1,
+                    date: "2023-10-18",
+                    method: "bKash",
+                    amount: 5000,
+                    account: "017XX-XXXXXX",
+                    status: "completed"
+                },
+                {
+                    id: 2,
+                    date: "2023-10-12",
+                    method: "Rocket",
+                    amount: 3000,
+                    account: "018XX-XXXXXX",
+                    status: "completed"
+                }
+            ],
+            
+            earningsHistory: [
+                {
+                    date: "2023-11-01",
+                    plan: "Pro Plan",
+                    amount: 270,
+                    status: "credited"
+                },
+                {
+                    date: "2023-10-31",
+                    plan: "Pro Plan",
+                    amount: 270,
+                    status: "credited"
+                },
+                {
+                    date: "2023-10-31",
+                    plan: "Basic Plan",
+                    amount: 60,
+                    status: "credited"
+                },
+                {
+                    date: "2023-10-30",
+                    plan: "Pro Plan",
+                    amount: 270,
+                    status: "credited"
+                }
+            ]
+        };
+
         // DOM Elements
-        const loginBtn = document.getElementById('loginBtn');
-        const registerBtn = document.getElementById('registerBtn');
-        const loginModal = document.getElementById('loginModal');
-        const registerModal = document.getElementById('registerModal');
-        const closeModals = document.querySelectorAll('.close-modal');
-        const switchToRegister = document.getElementById('switchToRegister');
-        const switchToLogin = document.getElementById('switchToLogin');
-        const loginSubmit = document.getElementById('loginSubmit');
-        const loginUsername = document.getElementById('loginUsername');
-        const loginPassword = document.getElementById('loginPassword');
-        const tabs = document.querySelectorAll('.tab');
-        const tabContents = document.querySelectorAll('.tab-content');
-        const paymentMethods = document.querySelectorAll('.payment-method');
-        const faqQuestions = document.querySelectorAll('.faq-question');
-        const adminTime = document.getElementById('adminTime');
-
-        // Set current time for admin panel
-        const now = new Date();
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
-        adminTime.textContent = `Last login: ${now.toLocaleDateString('en-US', options)}`;
-
-        // Modal functionality
-        loginBtn.addEventListener('click', () => {
-            loginModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
+        const navLinks = document.getElementById('navLinks');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const dashboardArea = document.getElementById('dashboardArea');
+        const authModal = document.getElementById('authModal');
+        const closeAuthModal = document.getElementById('closeAuthModal');
+        const startInvestingBtn = document.getElementById('startInvestingBtn');
+        const loginTab = document.getElementById('loginTab');
+        const registerTab = document.getElementById('registerTab');
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const submitLogin = document.getElementById('submitLogin');
+        const submitRegister = document.getElementById('submitRegister');
+        const adminTabLink = document.getElementById('adminTabLink');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const notification = document.getElementById('notification');
+        const notificationText = document.getElementById('notificationText');
+        
+        // Initialize the platform
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is already logged in (from session)
+            const savedUser = localStorage.getItem('finvestUser');
+            if (savedUser) {
+                const userData = JSON.parse(savedUser);
+                loginUser(userData);
+            }
+            
+            // Set up event listeners
+            setupEventListeners();
+            
+            // Initialize homepage content
+            renderInvestmentPlans();
+            renderActiveInvestments();
+            renderDepositHistory();
+            renderWithdrawHistory();
+            renderEarningsHistory();
+            setupFaqToggle();
         });
-
-        registerBtn.addEventListener('click', () => {
-            registerModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-
-        closeModals.forEach(closeBtn => {
-            closeBtn.addEventListener('click', () => {
-                loginModal.classList.remove('active');
-                registerModal.classList.remove('active');
-                document.body.style.overflow = 'auto';
+        
+        // Setup all event listeners
+        function setupEventListeners() {
+            // Mobile menu toggle
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
             });
-        });
-
-        switchToRegister.addEventListener('click', (e) => {
-            e.preventDefault();
-            loginModal.classList.remove('active');
-            registerModal.classList.add('active');
-        });
-
-        switchToLogin.addEventListener('click', (e) => {
-            e.preventDefault();
-            registerModal.classList.remove('active');
-            loginModal.classList.add('active');
-        });
-
-        // Close modal when clicking outside
-        window.addEventListener('click', (e) => {
-            if (e.target === loginModal) {
-                loginModal.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-            if (e.target === registerModal) {
-                registerModal.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-        });
-
-        // Admin login demo
-        loginSubmit.addEventListener('click', () => {
-            if (loginUsername.value === 'site11' && loginPassword.value === '999999') {
-                alert('Admin login successful! You now have access to the admin panel.');
-                loginModal.classList.remove('active');
-                document.body.style.overflow = 'auto';
+            
+            // Auth modal open
+            startInvestingBtn.addEventListener('click', openAuthModal);
+            
+            // Auth modal close
+            closeAuthModal.addEventListener('click', closeAuthModalFunc);
+            
+            // Auth modal outside click close
+            authModal.addEventListener('click', function(e) {
+                if (e.target === authModal) {
+                    closeAuthModalFunc();
+                }
+            });
+            
+            // Login/Register tab switching
+            loginTab.addEventListener('click', function() {
+                loginTab.classList.add('active');
+                registerTab.classList.remove('active');
+                loginForm.style.display = 'block';
+                registerForm.style.display = 'none';
+                document.getElementById('authModalTitle').textContent = 'Login to FinVest Pro';
+            });
+            
+            registerTab.addEventListener('click', function() {
+                registerTab.classList.add('active');
+                loginTab.classList.remove('active');
+                registerForm.style.display = 'block';
+                loginForm.style.display = 'none';
+                document.getElementById('authModalTitle').textContent = 'Register for FinVest Pro';
+            });
+            
+            // Login form submission
+            submitLogin.addEventListener('click', function() {
+                const username = document.getElementById('loginUsername').value;
+                const password = document.getElementById('loginPassword').value;
                 
-                // Scroll to admin panel
-                document.getElementById('admin').scrollIntoView({ behavior: 'smooth' });
-            } else {
-                alert('Login successful! Welcome to your dashboard.');
-                loginModal.classList.remove('active');
-                document.body.style.overflow = 'auto';
+                if (!username || !password) {
+                    showNotification('Please fill in all fields', 'error');
+                    return;
+                }
                 
-                // Scroll to dashboard
-                document.getElementById('dashboard').scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-
-        // Tab functionality
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                const tabId = tab.getAttribute('data-tab');
+                // Check for admin credentials
+                if (username === 'site11' && password === '999999') {
+                    loginUser(platformData.users[1]); // Admin user
+                    closeAuthModalFunc();
+                    showNotification('Admin login successful!', 'success');
+                    return;
+                }
                 
-                // Update active tab
-                tabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
+                // Check regular users (demo - in real app, this would be API call)
+                const user = platformData.users.find(u => 
+                    (u.email === username || u.username === username) && u.password === password
+                );
                 
-                // Show active tab content
-                tabContents.forEach(content => {
-                    content.classList.remove('active');
-                    if (content.id === tabId) {
-                        content.classList.add('active');
+                if (user) {
+                    loginUser(user);
+                    closeAuthModalFunc();
+                    showNotification('Login successful!', 'success');
+                } else {
+                    showNotification('Invalid username or password', 'error');
+                }
+            });
+            
+            // Register form submission
+            submitRegister.addEventListener('click', function() {
+                const name = document.getElementById('registerName').value;
+                const email = document.getElementById('registerEmail').value;
+                const phone = document.getElementById('registerPhone').value;
+                const password = document.getElementById('registerPassword').value;
+                
+                if (!name || !email || !phone || !password) {
+                    showNotification('Please fill in all required fields', 'error');
+                    return;
+                }
+                
+                // Create new user (demo - in real app, this would be API call)
+                const newUser = {
+                    id: platformData.users.length + 1,
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    balance: 0,
+                    totalEarnings: 0,
+                    activeInvestments: 0,
+                    referrals: 0,
+                    isAdmin: false
+                };
+                
+                platformData.users.push(newUser);
+                loginUser(newUser);
+                closeAuthModalFunc();
+                showNotification('Registration successful! Welcome to FinVest Pro.', 'success');
+            });
+            
+            // Logout button
+            logoutBtn.addEventListener('click', function() {
+                logoutUser();
+            });
+            
+            // Dashboard tab switching
+            document.querySelectorAll('.sidebar-menu a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const tab = this.getAttribute('data-tab');
+                    
+                    if (tab) {
+                        switchTab(tab);
                     }
                 });
             });
-        });
-
-        // Payment method selection
-        paymentMethods.forEach(method => {
-            method.addEventListener('click', () => {
-                paymentMethods.forEach(m => m.classList.remove('active'));
-                method.classList.add('active');
-            });
-        });
-
-        // FAQ accordion
-        faqQuestions.forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const isActive = answer.classList.contains('active');
-                
-                // Close all answers
-                document.querySelectorAll('.faq-answer').forEach(ans => {
-                    ans.classList.remove('active');
-                });
-                
-                // Toggle current answer if it wasn't active
-                if (!isActive) {
-                    answer.classList.add('active');
-                }
-                
-                // Rotate icon
-                const icon = question.querySelector('i');
-                if (answer.classList.contains('active')) {
-                    icon.style.transform = 'rotate(180deg)';
-                } else {
-                    icon.style.transform = 'rotate(0deg)';
-                }
-            });
-        });
-
-        // Simulate live data updates for dashboard
-        function updateDashboardData() {
-            const walletAmount = document.querySelector('.dashboard-card.wallet .amount');
-            const currentAmount = parseFloat(walletAmount.textContent.replace(/[^0-9.]/g, ''));
-            const newAmount = currentAmount + 345; // Simulate daily profit
-            walletAmount.innerHTML = `৳${newAmount.toLocaleString()} <small>(+৳345 today)</small>`;
             
-            // Update the "Today's Profit" in the hero section
-            const todayProfit = document.querySelector('.hero-image h2');
-            if (todayProfit) {
-                todayProfit.textContent = `৳${(345 + Math.floor(Math.random() * 50)).toLocaleString()}`;
-            }
-        }
-
-        // Update data every 30 seconds to simulate live updates
-        setInterval(updateDashboardData, 30000);
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
+            // Quick action buttons
+            document.querySelectorAll('[data-tab]').forEach(btn => {
+                if (btn.classList.contains('btn')) {
+                    btn.addEventListener('click', function() {
+                        const tab = this.getAttribute('data-tab');
+                        switchTab(tab);
                     });
                 }
             });
-        });
-
-        // Initialize with some data
-        window.addEventListener('DOMContentLoaded', () => {
-            // Set first payment method as active
-            if (paymentMethods.length > 0) {
-                paymentMethods[0].classList.add('active');
+            
+            // Payment method selection
+            document.querySelectorAll('.payment-method').forEach(method => {
+                method.addEventListener('click', function() {
+                    // Remove active class from all methods in the same container
+                    const container = this.closest('.payment-methods');
+                    container.querySelectorAll('.payment-method').forEach(m => {
+                        m.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked method
+                    this.classList.add('active');
+                    
+                    // Update payment instructions
+                    updatePaymentInstructions(this.getAttribute('data-method'));
+                });
+            });
+            
+            // Deposit submission
+            document.getElementById('submitDepositBtn').addEventListener('click', function() {
+                const amount = parseInt(document.getElementById('depositAmount').value);
+                const transactionId = document.getElementById('transactionId').value;
+                
+                if (!amount || amount < 500) {
+                    showNotification('Minimum deposit amount is ৳500', 'error');
+                    return;
+                }
+                
+                if (!transactionId) {
+                    showNotification('Please enter your transaction ID', 'error');
+                    return;
+                }
+                
+                // Get active payment method
+                const activeMethod = document.querySelector('.payment-methods .payment-method.active');
+                const method = activeMethod ? activeMethod.querySelector('span').textContent : 'bKash';
+                
+                // Add to deposit history
+                const newDeposit = {
+                    id: platformData.depositHistory.length + 1,
+                    date: new Date().toISOString().split('T')[0],
+                    method: method,
+                    amount: amount,
+                    transactionId: transactionId,
+                    status: 'pending'
+                };
+                
+                platformData.depositHistory.unshift(newDeposit);
+                
+                // Update UI
+                renderDepositHistory();
+                
+                // Show success message
+                showNotification(`Deposit request of ৳${amount} submitted successfully!`, 'success');
+                
+                // Clear form
+                document.getElementById('depositAmount').value = '';
+                document.getElementById('transactionId').value = '';
+            });
+            
+            // Withdrawal submission
+            document.getElementById('submitWithdrawBtn').addEventListener('click', function() {
+                const amount = parseInt(document.getElementById('withdrawAmount').value);
+                const accountNumber = document.getElementById('accountNumber').value;
+                
+                if (!amount || amount < 500) {
+                    showNotification('Minimum withdrawal amount is ৳500', 'error');
+                    return;
+                }
+                
+                if (!accountNumber) {
+                    showNotification('Please enter your account/phone number', 'error');
+                    return;
+                }
+                
+                // Check balance
+                const currentBalance = platformData.currentUser.balance;
+                if (amount > currentBalance) {
+                    showNotification('Insufficient balance for this withdrawal', 'error');
+                    return;
+                }
+                
+                // Get active payment method
+                const activeMethod = document.querySelector('#withdrawTab .payment-methods .payment-method.active');
+                const method = activeMethod ? activeMethod.querySelector('span').textContent : 'bKash';
+                
+                // Add to withdrawal history
+                const newWithdrawal = {
+                    id: platformData.withdrawHistory.length + 1,
+                    date: new Date().toISOString().split('T')[0],
+                    method: method,
+                    amount: amount,
+                    account: accountNumber,
+                    status: 'processing'
+                };
+                
+                platformData.withdrawHistory.unshift(newWithdrawal);
+                
+                // Update user balance
+                platformData.currentUser.balance -= amount;
+                updateUserBalanceDisplay();
+                
+                // Update UI
+                renderWithdrawHistory();
+                
+                // Show success message
+                showNotification(`Withdrawal request of ৳${amount} submitted successfully!`, 'success');
+                
+                // Clear form
+                document.getElementById('withdrawAmount').value = '';
+                document.getElementById('accountNumber').value = '';
+            });
+            
+            // Admin controls
+            document.querySelectorAll('.admin-control-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tab = this.getAttribute('data-admin-tab');
+                    switchAdminTab(tab);
+                });
+            });
+        }
+        
+        // Open authentication modal
+        function openAuthModal() {
+            authModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Close authentication modal
+        function closeAuthModalFunc() {
+            authModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Login user function
+        function loginUser(user) {
+            platformData.isLoggedIn = true;
+            platformData.currentUser = user;
+            platformData.isAdmin = user.isAdmin || false;
+            
+            // Save to localStorage
+            localStorage.setItem('finvestUser', JSON.stringify(user));
+            
+            // Update UI
+            updateUIAfterLogin();
+            
+            // Switch to dashboard
+            switchTab('dashboard');
+        }
+        
+        // Logout user function
+        function logoutUser() {
+            platformData.isLoggedIn = false;
+            platformData.currentUser = null;
+            platformData.isAdmin = false;
+            
+            // Remove from localStorage
+            localStorage.removeItem('finvestUser');
+            
+            // Update UI
+            updateUIAfterLogout();
+            
+            // Show notification
+            showNotification('Logged out successfully', 'success');
+        }
+        
+        // Update UI after login
+        function updateUIAfterLogin() {
+            // Show dashboard area
+            dashboardArea.style.display = 'block';
+            
+            // Update user info in header
+            document.getElementById('userName').textContent = platformData.currentUser.name;
+            document.getElementById('userAvatar').textContent = platformData.currentUser.name.charAt(0);
+            
+            // Update dashboard username
+            document.getElementById('dashboardUserName').textContent = platformData.currentUser.name.split(' ')[0];
+            
+            // Update user stats
+            updateUserBalanceDisplay();
+            
+            // Show/hide admin tab
+            if (platformData.isAdmin) {
+                adminTabLink.style.display = 'block';
+            } else {
+                adminTabLink.style.display = 'none';
             }
             
-            // Set first FAQ as open
-            if (faqQuestions.length > 0) {
-                faqQuestions[0].nextElementSibling.classList.add('active');
-                faqQuestions[0].querySelector('i').style.transform = 'rotate(180deg)';
+            // Close mobile menu if open
+            navLinks.classList.remove('active');
+        }
+        
+        // Update UI after logout
+        function updateUIAfterLogout() {
+            // Hide dashboard area
+            dashboardArea.style.display = 'none';
+            
+            // Reset to default user in header
+            document.getElementById('userName').textContent = 'Guest User';
+            document.getElementById('userAvatar').textContent = 'GU';
+        }
+        
+        // Update user balance display
+        function updateUserBalanceDisplay() {
+            if (!platformData.currentUser) return;
+            
+            document.getElementById('walletBalance').textContent = platformData.currentUser.balance.toLocaleString('en-IN');
+            document.getElementById('totalEarnings').textContent = platformData.currentUser.totalEarnings.toLocaleString('en-IN');
+            document.getElementById('activeInvestments').textContent = platformData.currentUser.activeInvestments;
+            document.getElementById('referralCount').textContent = platformData.currentUser.referrals;
+            document.getElementById('withdrawBalance').textContent = platformData.currentUser.balance.toLocaleString('en-IN');
+            
+            // Update header balance
+            document.querySelector('.user-balance').textContent = `৳ ${platformData.currentUser.balance.toLocaleString('en-IN')}`;
+        }
+        
+        // Switch between dashboard tabs
+        function switchTab(tabName) {
+            if (!platformData.isLoggedIn && tabName !== 'home') {
+                openAuthModal();
+                return;
             }
-        });
+            
+            // Update active tab in sidebar
+            document.querySelectorAll('.sidebar-menu a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-tab') === tabName) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            const selectedTab = document.getElementById(`${tabName}Tab`);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+                platformData.currentTab = tabName;
+                
+                // If switching to admin tab and user is admin
+                if (tabName === 'admin' && platformData.isAdmin) {
+                    switchAdminTab('overview');
+                }
+            }
+            
+            // Close mobile menu if open
+            navLinks.classList.remove('active');
+        }
+        
+        // Switch between admin tabs
+        function switchAdminTab(tabName) {
+            platformData.currentAdminTab = tabName;
+            
+            // Update admin control buttons
+            document.querySelectorAll('.admin-control-btn').forEach(btn => {
+                btn.style.backgroundColor = '';
+                if (btn.getAttribute('data-admin-tab') === tabName) {
+                    btn.style.backgroundColor = 'rgba(37, 99, 235, 0.1)';
+                }
+            });
+            
+            // Update admin content based on tab
+            const adminContent = document.getElementById('adminContent');
+            let contentHTML = '';
+            
+            switch(tabName) {
+                case 'users':
+                    contentHTML = `
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-users"></i> User Management</h3>
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Balance</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        ${platformData.users.map(user => `
+                                            <tr>
+                                                <td>${user.id}</td>
+                                                <td>${user.name} ${user.isAdmin ? '<span class="badge badge-info">Admin</span>' : ''}</td>
+                                                <td>${user.email || 'N/A'}</td>
+                                                <td>৳ ${user.balance.toLocaleString('en-IN')}</td>
+                                                <td><span class="badge badge-success">Active</span></td>
+                                                <td>
+                                                    <button class="btn btn-outline" style="padding: 5px 10px; font-size: 0.85rem;">Edit</button>
+                                                    <button class="btn btn-outline" style="padding: 5px 10px; font-size: 0.85rem; margin-left: 5px;">Ban</button>
+                                                </td>
+                                            </tr>
+                                        `).join('')}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'deposits':
+                    contentHTML = `
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-arrow-down"></i> Deposit Requests</h3>
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>User</th>
+                                            <th>Amount</th>
+                                            <th>Method</th>
+                                            <th>Transaction ID</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        ${platformData.depositHistory.map(deposit => `
+                                            <tr>
+                                                <td>${deposit.id}</td>
+                                                <td>User ${deposit.id}</td>
+                                                <td>৳ ${deposit.amount.toLocaleString('en-IN')}</td>
+                                                <td>${deposit.method}</td>
+                                                <td><code>${deposit.transactionId}</code></td>
+                                                <td>${deposit.date}</td>
+                                                <td>
+                                                    ${deposit.status === 'approved' ? '<span class="badge badge-success">Approved</span>' : 
+                                                      deposit.status === 'pending' ? '<span class="badge badge-warning">Pending</span>' : 
+                                                      '<span class="badge badge-danger">Rejected</span>'}
+                                                </td>
+                                                <td>
+                                                    ${deposit.status === 'pending' ? `
+                                                        <button class="btn btn-success" style="padding: 5px 10px; font-size: 0.85rem;">Approve</button>
+                                                        <button class="btn btn-danger" style="padding: 5px 10px; font-size: 0.85rem; margin-left: 5px;">Reject</button>
+                                                    ` : '<span class="badge badge-pending">Processed</span>'}
+                                                </td>
+                                            </tr>
+                                        `).join('')}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'withdrawals':
+                    contentHTML = `
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-arrow-up"></i> Withdrawal Requests</h3>
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>User</th>
+                                            <th>Amount</th>
+                                            <th>Method</th>
+                                            <th>Account</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        ${platformData.withdrawHistory.map(withdrawal => `
+                                            <tr>
+                                                <td>${withdrawal.id}</td>
+                                                <td>User ${withdrawal.id}</td>
+                                                <td>৳ ${withdrawal.amount.toLocaleString('en-IN')}</td>
+                                                <td>${withdrawal.method}</td>
+                                                <td>${withdrawal.account}</td>
+                                                <td>${withdrawal.date}</td>
+                                                <td>
+                                                    ${withdrawal.status === 'completed' ? '<span class="badge badge-success">Completed</span>' : 
+                                                      withdrawal.status === 'processing' ? '<span class="badge badge-warning">Processing</span>' : 
+                                                      '<span class="badge badge-danger">Rejected</span>'}
+                                                </td>
+                                                <td>
+                                                    ${withdrawal.status === 'processing' ? `
+                                                        <button class="btn btn-success" style="padding: 5px 10px; font-size: 0.85rem;">Complete</button>
+                                                        <button class="btn btn-danger" style="padding: 5px 10px; font-size: 0.85rem; margin-left: 5px;">Reject</button>
+                                                    ` : '<span class="badge badge-pending">Processed</span>'}
+                                                </td>
+                                            </tr>
+                                        `).join('')}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'plans':
+                    contentHTML = `
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-chart-line"></i> Investment Plans Management</h3>
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Plan Name</th>
+                                            <th>Min Amount</th>
+                                            <th>Max Amount</th>
+                                            <th>Daily Profit</th>
+                                            <th>Duration</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        ${platformData.investmentPlans.map(plan => `
+                                            <tr>
+                                                <td>${plan.id}</td>
+                                                <td>${plan.name}</td>
+                                                <td>৳ ${plan.minAmount.toLocaleString('en-IN')}</td>
+                                                <td>৳ ${plan.maxAmount.toLocaleString('en-IN')}</td>
+                                                <td>${plan.dailyProfit}%</td>
+                                                <td>${plan.duration} days</td>
+                                                <td>
+                                                    <button class="btn btn-outline" style="padding: 5px 10px; font-size: 0.85rem;">Edit</button>
+                                                    <button class="btn btn-outline" style="padding: 5px 10px; font-size: 0.85rem; margin-left: 5px;">Delete</button>
+                                                </td>
+                                            </tr>
+                                        `).join('')}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <button class="btn btn-primary" style="margin-top: 20px;">
+                                <i class="fas fa-plus"></i> Add New Plan
+                            </button>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'overview':
+                default:
+                    contentHTML = `
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-tachometer-alt"></i> Platform Overview</h3>
+                            <div class="dashboard-stats">
+                                <div class="stat-card">
+                                    <div class="value" id="adminTotalUsers">${platformData.users.length}</div>
+                                    <div class="label">Total Users</div>
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="value">৳ <span id="adminTotalDeposits">${platformData.depositHistory.reduce((sum, dep) => sum + dep.amount, 0).toLocaleString('en-IN')}</span></div>
+                                    <div class="label">Total Deposits</div>
+                                    <i class="fas fa-arrow-down"></i>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="value">৳ <span id="adminTotalWithdrawals">${platformData.withdrawHistory.reduce((sum, wd) => sum + wd.amount, 0).toLocaleString('en-IN')}</span></div>
+                                    <div class="label">Total Withdrawals</div>
+                                    <i class="fas fa-arrow-up"></i>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="value">৳ <span id="adminTotalProfits">${platformData.earningsHistory.reduce((sum, earn) => sum + earn.amount, 0).toLocaleString('en-IN')}</span></div>
+                                    <div class="label">Total Profits Paid</div>
+                                    <i class="fas fa-coins"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-cog"></i> Quick Admin Actions</h3>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;">
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-bell"></i> Send Notification
+                                </button>
+                                <button class="btn btn-success">
+                                    <i class="fas fa-plus-circle"></i> Add Funds to User
+                                </button>
+                                <button class="btn btn-outline">
+                                    <i class="fas fa-file-export"></i> Export Reports
+                                </button>
+                                <button class="btn btn-outline">
+                                    <i class="fas fa-cogs"></i> System Settings
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    break;
+            }
+            
+            adminContent.innerHTML = contentHTML;
+        }
+        
+        // Render investment plans
+        function renderInvestmentPlans() {
+            const plansContainer = document.querySelector('.plans-container');
+            if (!plansContainer) return;
+            
+            plansContainer.innerHTML = platformData.investmentPlans.map(plan => `
+                <div class="plan-card plan-${plan.name.toLowerCase().split(' ')[0]}">
+                    <div class="plan-header">
+                        <div class="plan-name">${plan.name}</div>
+                        <div class="plan-price">${plan.dailyProfit}%</div>
+                        <div class="plan-period">Daily Profit</div>
+                    </div>
+                    <div class="plan-body">
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check-circle"></i> Minimum: ৳ ${plan.minAmount.toLocaleString('en-IN')}</li>
+                            <li><i class="fas fa-check-circle"></i> Maximum: ৳ ${plan.maxAmount.toLocaleString('en-IN')}</li>
+                            <li><i class="fas fa-check-circle"></i> Duration: ${plan.duration} days</li>
+                            <li><i class="fas fa-check-circle"></i> Total Return: ${(plan.dailyProfit * plan.duration).toFixed(1)}%</li>
+                            <li><i class="fas fa-check-circle"></i> Principal Return: Yes</li>
+                        </ul>
+                        <p style="margin-bottom: 20px; color: var(--gray-600); font-size: 0.9rem;">${plan.description}</p>
+                        <button class="btn btn-primary invest-btn" data-plan-id="${plan.id}" style="width: 100%;">
+                            <i class="fas fa-coins"></i> Invest Now
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Add event listeners to invest buttons
+            document.querySelectorAll('.invest-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const planId = parseInt(this.getAttribute('data-plan-id'));
+                    const plan = platformData.investmentPlans.find(p => p.id === planId);
+                    
+                    if (!platformData.isLoggedIn) {
+                        openAuthModal();
+                        return;
+                    }
+                    
+                    // Show investment modal or redirect to invest page
+                    showNotification(`Ready to invest in ${plan.name}? Go to the Invest tab to proceed.`, 'success');
+                    switchTab('invest');
+                });
+            });
+        }
+        
+        // Render active investments
+        function renderActiveInvestments() {
+            const tableBody = document.getElementById('activeInvestmentsTable');
+            if (!tableBody) return;
+            
+            tableBody.innerHTML = platformData.activeInvestments.map(investment => `
+                <tr>
+                    <td>${investment.planName}</td>
+                    <td>৳ ${investment.invested.toLocaleString('en-IN')}</td>
+                    <td>৳ ${investment.dailyProfit.toLocaleString('en-IN')}</td>
+                    <td>৳ ${investment.totalEarned.toLocaleString('en-IN')}</td>
+                    <td>${investment.daysLeft} days</td>
+                    <td><span class="badge badge-success">Active</span></td>
+                </tr>
+            `).join('');
+        }
+        
+        // Render deposit history
+        function renderDepositHistory() {
+            const tableBody = document.getElementById('depositHistoryTable');
+            if (!tableBody) return;
+            
+            tableBody.innerHTML = platformData.depositHistory.map(deposit => `
+                <tr>
+                    <td>${deposit.date}</td>
+                    <td>${deposit.method}</td>
+                    <td>৳ ${deposit.amount.toLocaleString('en-IN')}</td>
+                    <td><code>${deposit.transactionId}</code></td>
+                    <td>
+                        ${deposit.status === 'approved' ? '<span class="badge badge-success">Approved</span>' : 
+                          deposit.status === 'pending' ? '<span class="badge badge-warning">Pending</span>' : 
+                          '<span class="badge badge-danger">Rejected</span>'}
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        // Render withdrawal history
+        function renderWithdrawHistory() {
+            const tableBody = document.getElementById('withdrawHistoryTable');
+            if (!tableBody) return;
+            
+            tableBody.innerHTML = platformData.withdrawHistory.map(withdrawal => `
+                <tr>
+                    <td>${withdrawal.date}</td>
+                    <td>${withdrawal.method}</td>
+                    <td>৳ ${withdrawal.amount.toLocaleString('en-IN')}</td>
+                    <td>${withdrawal.account}</td>
+                    <td>
+                        ${withdrawal.status === 'completed' ? '<span class="badge badge-success">Completed</span>' : 
+                          withdrawal.status === 'processing' ? '<span class="badge badge-warning">Processing</span>' : 
+                          '<span class="badge badge-danger">Rejected</span>'}
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        // Render earnings history
+        function renderEarningsHistory() {
+            const tableBody = document.getElementById('earningsTable');
+            if (!tableBody) return;
+            
+            tableBody.innerHTML = platformData.earningsHistory.map(earning => `
+                <tr>
+                    <td>${earning.date}</td>
+                    <td>${earning.plan}</td>
+                    <td>৳ ${earning.amount.toLocaleString('en-IN')}</td>
+                    <td><span class="badge badge-success">${earning.status}</span></td>
+                </tr>
+            `).join('');
+        }
+        
+        // Update payment instructions based on selected method
+        function updatePaymentInstructions(method) {
+            const paymentDetails = document.getElementById('paymentDetails');
+            if (!paymentDetails) return;
+            
+            let instructions = '';
+            
+            switch(method) {
+                case 'bkash':
+                    instructions = `
+                        <h4 style="margin-bottom: 15px;">bKash Payment Instructions</h4>
+                        <p><strong>Number:</strong> 017XX-XXXXXX</p>
+                        <p><strong>Type:</strong> Personal</p>
+                        <p>Send money to this number and enter the transaction ID below.</p>
+                    `;
+                    break;
+                    
+                case 'nagad':
+                    instructions = `
+                        <h4 style="margin-bottom: 15px;">Nagad Payment Instructions</h4>
+                        <p><strong>Number:</strong> 018XX-XXXXXX</p>
+                        <p><strong>Type:</strong> Personal</p>
+                        <p>Send money to this number and enter the transaction ID below.</p>
+                    `;
+                    break;
+                    
+                case 'rocket':
+                    instructions = `
+                        <h4 style="margin-bottom: 15px;">Rocket Payment Instructions</h4>
+                        <p><strong>Number:</strong> 019XX-XXXXXX</p>
+                        <p><strong>Type:</strong> Personal</p>
+                        <p>Send money to this number and enter the transaction ID below.</p>
+                    `;
+                    break;
+                    
+                case 'upay':
+                    instructions = `
+                        <h4 style="margin-bottom: 15px;">Upay Payment Instructions</h4>
+                        <p><strong>Number:</strong> 017XX-XXXXXX</p>
+                        <p>Use the Upay app to send money and enter the transaction ID below.</p>
+                    `;
+                    break;
+                    
+                case 'bank':
+                    instructions = `
+                        <h4 style="margin-bottom: 15px;">Bank Transfer Instructions</h4>
+                        <p><strong>Bank:</strong> Prime Bank Limited</p>
+                        <p><strong>Account Name:</strong> FinVest Pro Ltd.</p>
+                        <p><strong>Account Number:</strong> 1234567890123</p>
+                        <p><strong>Branch:</strong> Gulshan 1, Dhaka</p>
+                        <p>After transferring, enter the transaction ID below.</p>
+                    `;
+                    break;
+                    
+                default:
+                    instructions = `
+                        <h4 style="margin-bottom: 15px;">Payment Instructions</h4>
+                        <p>Select a payment method to view instructions.</p>
+                    `;
+            }
+            
+            paymentDetails.innerHTML = instructions;
+        }
+        
+        // Setup FAQ toggle functionality
+        function setupFaqToggle() {
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const icon = this.querySelector('i');
+                    
+                    // Toggle active class
+                    answer.classList.toggle('active');
+                    
+                    // Rotate icon
+                    if (answer.classList.contains('active')) {
+                        icon.style.transform = 'rotate(180deg)';
+                    } else {
+                        icon.style.transform = 'rotate(0deg)';
+                    }
+                });
+            });
+        }
+        
+        // Show notification
+        function showNotification(message, type = 'success') {
+            notificationText.textContent = message;
+            notification.className = 'notification';
+            notification.classList.add(`notification-${type}`);
+            notification.classList.add('show');
+            
+            // Set icon based on type
+            const icon = notification.querySelector('i');
+            if (type === 'success') {
+                icon.className = 'fas fa-check-circle';
+            } else if (type === 'error') {
+                icon.className = 'fas fa-exclamation-circle';
+            } else if (type === 'warning') {
+                icon.className = 'fas fa-exclamation-triangle';
+            }
+            
+            // Hide after 5 seconds
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 5000);
+        }
+        
+        // Simulate auto-income (demo only)
+        function simulateAutoIncome() {
+            if (!platformData.isLoggedIn) return;
+            
+            // Simulate daily earnings for active investments
+            let dailyEarnings = 0;
+            platformData.activeInvestments.forEach(investment => {
+                dailyEarnings += investment.dailyProfit;
+            });
+            
+            if (dailyEarnings > 0) {
+                // Update user balance
+                platformData.currentUser.balance += dailyEarnings;
+                platformData.currentUser.totalEarnings += dailyEarnings;
+                
+                // Add to earnings history
+                const today = new Date().toISOString().split('T')[0];
+                const newEarning = {
+                    date: today,
+                    plan: "Multiple Plans",
+                    amount: dailyEarnings,
+                    status: "credited"
+                };
+                
+                platformData.earningsHistory.unshift(newEarning);
+                
+                // Update UI
+                updateUserBalanceDisplay();
+                renderEarningsHistory();
+                
+                // Show notification (only once per day in real app)
+                if (Math.random() > 0.7) { // Random chance to show notification
+                    showNotification(`৳${dailyEarnings.toLocaleString('en-IN')} daily earnings credited to your wallet!`, 'success');
+                }
+            }
+        }
+        
+        // Auto-income simulation (run every 30 seconds for demo)
+        setInterval(simulateAutoIncome, 30000);
+        
+        // Initialize payment instructions
+        updatePaymentInstructions('bkash');
     </script>
 </body>
 </html>
